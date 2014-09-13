@@ -1,0 +1,87 @@
+library("gpclib")
+library("ggplot2")
+library("mapdata")
+library("maps")
+library("maptools")
+library("rgeos")
+
+houses <- read.csv("houseprices/london2009-2014-house-prices//Houseprice_2009_100km_London.csv", stringsAsFactors=F)
+post2lat <- read.csv("postcodes.csv")
+
+houses$postcodenospace <- gsub(" ", "", houses$Postcode)
+
+p <- merge(post2lat[,-1], houses, by.x="postcode", by.y="postcodenospace")
+
+lat.min <- min(p$latitude)
+lat.max <- max(p$latitude)
+long.min <- min(p$longitude)
+long.max <- max(p$longitude)
+
+map("worldHires", ".", col="gray90", fill=TRUE, 
+    xlim=c(long.min, long.max), ylim=c(lat.min, lat.max))
+points(p$longitude, p$latitude, pch=".")
+
+places <- readShapePoly("england-latest.shp/places.shp")
+as.data.frame(places)
+
+library("rgdal")
+places <- readOGR(dsn = "england-latest.shp", "waterways") 
+pp <- fortify(places)
+
+
+library("ggmap")
+map <- get_map(location="London", zoom=8, maptype="toner", color="bw", source="stamen")
+p1 <- ggmap(map, extent="device", darken=.6)
+p1 + geom_point(data=p[sample(1:nrow(p), 1e5),], 
+                aes(x=longitude, y=latitude, alpha=log10(Price)), col="white") +
+  scale_alpha_continuous(range=c(.01, .2)) +
+  labs(x="", y="") + theme(legend.position="none") 
+
+# filename ordering for (e.g.) imagemagick (yes, 51 not 52)
+getfn <- function(n)
+  ifelse(n > 51, paste0("zz", letters[n %% 26]), 
+         ifelse(n > 26, paste0("z", letters[n %% 26]), letters[n]))
+
+
+for( ym in 1:65 ){
+  # x=1, y=50.5
+  p1 + geom_point(data=p[p$yearmon == levels(p$yearmon)[ym],], 
+                       aes(x=longitude, y=latitude, alpha=log10(Price)), 
+                  col="white", size=.5) + 
+    labs(x="", y="") + 
+    theme(legend.position="none",
+          axis.ticks = element_blank(), axis.text.x = element_blank(),
+         axis.text.y = element_blank()) +
+    annotate("text", x=1, y=50.5, label=levels(p$yearmon)[ym], 
+             col="white", size=10, family="mono") +
+    scale_alpha_continuous(range=c(.01, .15))
+    ggsave(paste0("plots/seq/", getfn(ym), ".png"), width=3.5, height=3.5)
+}
+
+## stitch pngs to gif w/ imagemagick
+## http://ubuntuforums.org/showthread.php?t=1132058
+## convert -delay 10 -loop 0 *.png -resize 75% animated.gif
+## or something more exotic, median filtering:
+## convert -delay 10 -loop 0 *.png -median 5x5 animated3.gif
+
+## Zoom to london only
+map2 <- get_map(location="London", zoom=10, maptype="toner", color="bw", source="stamen")
+p2 <- ggmap(map2, extent="device", darken=.6)
+
+for( ym in 1:65 ){
+  ym = 1
+  p2 + geom_point(data=p[p$yearmon == levels(p$yearmon)[ym],], 
+                  aes(x=longitude, y=latitude, alpha=log10(Price)), 
+                  col="white", size=.5) + 
+    labs(x="", y="") + 
+    theme(legend.position="none",
+          axis.ticks = element_blank(), axis.text.x = element_blank(),
+          axis.text.y = element_blank(),
+          plot.title=element_text(family="mono", size=14)) +
+  annotate("text", x=.1, y=51.2, label=levels(p$yearmon)[ym], col="white") +
+    scale_alpha_continuous(range=c(.3, .6))
+  
+  ggsave(paste0("plots/seq2/", getfn(ym), ".png"), width=2.5, height=2.5)
+}
+
+

@@ -1,0 +1,13 @@
+# Summer Data Challenge
+
+## Intro
+
+The challenge is an open-ended contest to find new insights using our exclusively prepared datasets, and propose how these new insights can be used to create social or economic value in the form of new products, services, or businesses.
+
+Submissions will be judged on technical ability, creativity, practicality, and their potential for generating social or economic impact. Anybody can download our datasets and enter the contest and submissions will be judged by a panel made up of experts from academia and industry. The best submissions will be showcased on Imperial College's Data Science Institute website.
+
+## London house prices datasets
+
+1. Map of house sales over 5 year period. Solar theme, white flashes for house sale, brightness / persistence proportional to cost. js plotting library. Start off with ggplot2 svg then animate via d3? (this is icing on the cake really, not relevant for new insights)
+
+2. Actionable insights. Relate percentages changes to other variables, as supplied by other datasets from e.g. guardian data. Machine learning, variable importance etc. What makes for a good local housing market?

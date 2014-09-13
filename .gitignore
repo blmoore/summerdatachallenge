@@ -11,3 +11,8 @@
 
 # large data files
 houseprices/
+england-latest.shp/
+ONSPD_MAY_2014_csv/
+osmaps/
+
+*.zip
