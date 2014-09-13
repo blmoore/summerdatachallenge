@@ -46,22 +46,22 @@ getfn <- function(n)
 for( ym in 1:65 ){
   # x=1, y=50.5
   p1 + geom_point(data=p[p$yearmon == levels(p$yearmon)[ym],], 
-                       aes(x=longitude, y=latitude, alpha=log10(Price)), 
-                  col="white", size=.5) + 
+                       aes(x=longitude, y=latitude, alpha=log10(log10(Price))), 
+                  col="white", size=.3) + 
     labs(x="", y="") + 
     theme(legend.position="none",
           axis.ticks = element_blank(), axis.text.x = element_blank(),
          axis.text.y = element_blank()) +
-    annotate("text", x=1, y=50.5, label=levels(p$yearmon)[ym], 
-             col="white", size=10, family="mono") +
-    scale_alpha_continuous(range=c(.01, .15))
+    annotate("text", x=.8, y=50.5, label=levels(p$yearmon)[ym], 
+             col="white", size=8, family="mono") +
+    scale_alpha_continuous(range=c(.2, .45))
     ggsave(paste0("plots/seq/", getfn(ym), ".png"), width=3.5, height=3.5)
 }
 
 ## stitch pngs to gif w/ imagemagick
 ## http://ubuntuforums.org/showthread.php?t=1132058
-## convert -delay 10 -loop 0 *.png -resize 75% animated.gif
-## or something more exotic, median filtering:
+## convert -delay 13 -loop 0 *.png -resize 60% animated2.gif
+## or something more exotic, median filtering, etc.:
 ## convert -delay 10 -loop 0 *.png -median 5x5 animated3.gif
 
 ## Zoom to london only
@@ -69,16 +69,14 @@ map2 <- get_map(location="London", zoom=10, maptype="toner", color="bw", source=
 p2 <- ggmap(map2, extent="device", darken=.6)
 
 for( ym in 1:65 ){
-  ym = 1
   p2 + geom_point(data=p[p$yearmon == levels(p$yearmon)[ym],], 
                   aes(x=longitude, y=latitude, alpha=log10(Price)), 
                   col="white", size=.5) + 
     labs(x="", y="") + 
     theme(legend.position="none",
           axis.ticks = element_blank(), axis.text.x = element_blank(),
-          axis.text.y = element_blank(),
-          plot.title=element_text(family="mono", size=14)) +
-  annotate("text", x=.1, y=51.2, label=levels(p$yearmon)[ym], col="white") +
+          axis.text.y = element_blank()) +
+  annotate("text", x=.11, y=51.26, label=levels(p$yearmon)[ym], col="white", family="mono") +
     scale_alpha_continuous(range=c(.3, .6))
   
   ggsave(paste0("plots/seq2/", getfn(ym), ".png"), width=2.5, height=2.5)
