@@ -11,3 +11,19 @@ Submissions will be judged on technical ability, creativity, practicality, and t
 1. Map of house sales over 5 year period. Solar theme, white flashes for house sale, brightness / persistence proportional to cost. js plotting library. Start off with ggplot2 svg then animate via d3? (this is icing on the cake really, not relevant for new insights)
 
 2. Actionable insights. Relate percentages changes to other variables, as supplied by other datasets from e.g. guardian data. Machine learning, variable importance etc. What makes for a good local housing market?
+
+## New product OR new service OR new business
+
+Housing sale data, of interest to REITs, realtors, consumer housing market, individuals.
+
+Product ideas:
+
+* app for personal use. History of house sales in a given postcode, outlook for future growth, summary stats from other sources. Who'd use this? Eventually be bought out by Zoopla etc. for integration with their services. Do they offer this stuff already? 
+  * Currently rightmove lists past house sales for an area
+  * ONS offers clunky postcode datasets: http://www.neighbourhood.statistics.gov.uk/dissemination/LeadAreaSearch.do?a=7&i=1001&m=0&s=1410700363772&enc=1&areaSearchText=nw9+6ef&extendedList=false&searchAreas=
+  * Crime statistics: http://www.crime-statistics.co.uk/postcode
+
+Input postcode of interest, get nice visualisation of previous house sales, median rolling prices. Integrated with other data. Also offer surrouding postcode data for comparison.
+
+
+

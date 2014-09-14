@@ -5,26 +5,9 @@ library("dplyr")
 library("ggplot2")
 #devtools::install_github("blmR", "blmoore")
 library("blmR")
+source("R/functions.R")
 
-houses <- read.csv("houseprices/london2009-2014-house-prices//Houseprice_2009_100km_London.csv", stringsAsFactors=F)
-
-houses$Price <- as.numeric(gsub("_", "", houses$Price))
-houses$Trdate <- as.Date(houses$Trdate)
-
-# how have house prices changed over time
-#ggplot(houses[sample(1:nrow(houses), 1e5),], 
-#       aes(x=Trdate, y=Price, col=Property_Type)) +
-#  geom_point() + scale_y_log10()
-
-# area level (e.g. NW)
-houses$area <- factor(gsub("^(\\D+?)\\d.*", "\\1", as.character(houses$Postcode)))
-
-# district (e.g. NW9)
-houses$district <- factor(do.call(rbind, strsplit(houses$Postcode, " "))[,1])
-
-# sector (e.g. NW9 6)
-houses$sector <- paste(as.character(houses$district),
-  gsub(".*?\\s(\\d+).+", "\\1", houses$Postcode), sep=" ")
+houses <- loadHouses()
 
 h2 <- group_by(houses, district) %>%
   filter(n() > 5e3)
