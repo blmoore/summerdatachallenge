@@ -53,7 +53,8 @@ ggplot(sw18, aes(x=Trdate, y=Price)) +
 
 smod <- loess(Price ~ as.numeric(Trdate), data=sw18)
 months <- seq(min(sw18$Trdate), max(sw18$Trdate), by="month")
-cat(paste0(round(predict(smod, as.numeric(months))), sep=","))
+cat(paste0(signif(predict(smod, as.numeric(months)), 3), sep=","))
 
 amod <- loess(Price ~ as.numeric(Trdate), 
               data=houses[sample(1:nrow(houses), 1e5),])
+cat(paste0(signif(predict(amod, as.numeric(months)), 3), sep=","))
