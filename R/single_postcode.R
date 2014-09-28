@@ -52,9 +52,11 @@ ggplot(sw18, aes(x=Trdate, y=Price)) +
                              quantile(sw18$Price, .95)))
 
 smod <- loess(Price ~ as.numeric(Trdate), data=sw18)
-months <- seq(min(sw18$Trdate), max(sw18$Trdate), by="month")
+months <- seq(min(sw18$Trdate), max(sw18$Trdate), by="quarter")
 cat(paste0(signif(predict(smod, as.numeric(months)), 3), sep=","))
 
 amod <- loess(Price ~ as.numeric(Trdate), 
               data=houses[sample(1:nrow(houses), 1e5),])
 cat(paste0(signif(predict(amod, as.numeric(months)), 3), sep=","))
+
+## statis plots for now:

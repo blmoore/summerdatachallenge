@@ -44,9 +44,9 @@ for( ym in 1:65 ){
           axis.ticks = element_blank(), axis.text.x = element_blank(),
          axis.text.y = element_blank()) +
     annotate("text", x=.8, y=50.5, label=levels(houses$yearmon)[ym], 
-             col="white", size=8, family="mono") +
+             col="white", family="mono") +
     scale_alpha_continuous(range=c(.2, .45))
-    ggsave(paste0("plots/seq/", getfn(ym), ".png"), width=3.5, height=3.5)
+    ggsave(paste0("plots/seq/", getfn(ym), ".png"), width=2.5, height=2.5)
 }
 
 ## stitch pngs to gif w/ imagemagick
@@ -54,7 +54,7 @@ for( ym in 1:65 ){
 ## convert -delay 13 -loop 0 *.png -resize 60% animated2.gif
 ## or something more exotic, median filtering, etc.:
 ## convert -delay 10 -loop 0 *.png -median 5x5 animated3.gif
-system("convert -delay 13 -loop 0 plots/seq/*.png -resize 60% plots/seq/animated_se.gif")
+system("convert -delay 13 -loop 0 plots/seq/*.png -resize 60% plots/gifs/all.gif")
 
 ## Zoom to london only
 map2 <- get_map(location="London", zoom=10, maptype="toner", color="bw", source="stamen")
@@ -74,5 +74,5 @@ for( ym in 1:65 ){
   ggsave(paste0("plots/seq2/", getfn(ym), ".png"), width=2.5, height=2.5)
 }
 
-system("convert -delay 13 -loop 0 plots/seq2/*.png -resize 60% plots/seq/animated_ldn.gif")
+system("convert -delay 13 -loop 0 plots/seq2/*.png -resize 60% plots/gifs/london.gif")
 
