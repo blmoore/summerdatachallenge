@@ -107,7 +107,8 @@ ggplot(pcsummary, aes(y=med/1e3, x=sales,
   scale_size_continuous(range=c(2, 5)) +
   labs(x="5yr house sales", y="Median sale price (000s £)")
 
-
+## SW18 4**
+pdf("plots/sw184_priceDist.pdf", 4, 2)
 ggplot(pcsummary, aes(x=med/1e3)) +
   geom_density(fill=I(rgb(239, 245, 249, max=255)),
                col=I(rgb(175,205,226, max=255))) + theme_sdc() +
@@ -116,6 +117,55 @@ ggplot(pcsummary, aes(x=med/1e3)) +
   theme(axis.ticks = element_blank(), 
         axis.title.y = element_blank(), 
         axis.text.y =  element_blank()) +
-  labs(x="5yr house sales (median price, 000s £)")
+  labs(x="5yr house sales (median price, 000s £)") +
+  annotate("text", x=750, y=4e-3, label="SW18 4", col=I("grey30"), size=6)
+dev.off()
 
+## SW18
+sw18.s <- group_by(sw18, sector) %>%
+  summarise(med=median(Price))
 
+sw18.s <- sw18.s[order(sw18.s$med),]
+# order by median sale
+sw18$sector <- factor(sw18$sector, levels=sw18.s$sector)
+
+pdf("plots/sw18_priceDist.pdf", 5, 3.5)
+ggplot(sw18, aes(x=sector, y=Price/1e3)) +
+  geom_violin(fill=I(rgb(239, 245, 249, max=255)),
+              col=I(rgb(175,205,226, max=255))) + 
+                geom_jitter(alpha=I(.35), col=I("grey80"), size=I(.8)) +
+  theme_sdc() + scale_y_log10(breaks=c(100,250,500,1000,2500,5000)) +
+  labs(y="House sales (000s £)", x="") +
+  annotate("text", x="SW18 4", y=7.5e3, label="SW18", col=I("grey40"), size=6)
+dev.off()
+
+london.s
+
+## London 
+london.s <- group_by(ldn, area) %>% 
+  summarise(med=median(Price))
+london.s <- london.s[order(london.s$med),]
+ldn$area <- factor(ldn$area, levels=(london.s$area))
+
+pdf("plots/ldn_areas.pdf", 3.5, 5)
+ggplot(ldn, aes(x=area, y=Price/1e3)) +
+  geom_violin(fill=I(rgb(203, 212, 231, max=255)),
+              col=I(rgb(175,205,226, max=255)),
+              scale="width") + 
+  #geom_jitter(alpha=I(.35), col=I("grey80"), size=I(.8)) +
+  theme_sdc() + scale_y_log10(breaks=c(50,100,500,1000,5000), 
+                              limits=c(80, 10000)) +
+  labs(y="House prices (000s £)", x="") +
+  geom_crossbar(data=london.s, inherit.aes=F, aes(x=area, y=med/1e3,
+                                                  ymin=med/1e3, max=med/1e3),
+             col=rgb(12, 61, 137, max=255), width=I(.65)) +
+  coord_flip() + 
+  geom_text(data=london.s, inherit.aes=F, aes(x=area, y=(med/1e3)*.75,
+                                              label=area),
+            color=I(rgb(12, 61, 137, max=255)), size=3) +
+  theme(axis.text.y=element_blank())
+dev.off()
+  
+library("ggmap")
+map <- get_map(location="SW18 4HU", zoom=17, maptype="hybrid")
+ggmap(map, extent="device")
