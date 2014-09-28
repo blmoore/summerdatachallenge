@@ -12,12 +12,6 @@ map("worldHires", ".", col="gray90", fill=TRUE,
     xlim=c(long.min, long.max), ylim=c(lat.min, lat.max))
 points(p$longitude, p$latitude, pch=".")
 
-# places <- readShapePoly("england-latest.shp/places.shp")
-# as.data.frame(places)
-# 
-# library("rgdal")
-# places <- readOGR(dsn = "england-latest.shp", "waterways") 
-# pp <- fortify(places)
 
 
 library("ggmap")

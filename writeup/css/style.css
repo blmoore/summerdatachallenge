@@ -776,7 +776,7 @@
 
 			#main > section.three
 			{
-				background-color: #ecf1f1;
+				background-color: #fff;
 			}
 
 			#main > section.four
@@ -791,4 +791,15 @@
     -moz-transform: matrix(-1, 0, 0, 1, 0, 0);
     -o-transform: matrix(-1, 0, 0, 1, 0, 0);
     transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+a img {
+    text-decoration:;
+    outline: none;
+    border: 0px none transparent none !important;
+}
+
+span.tooltip {
+	  border-bottom: 1px dotted #222;
+    text-decoration: none;
 }

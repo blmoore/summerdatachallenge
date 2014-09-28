@@ -90,7 +90,7 @@ theme_sdc_null <- function(base_size=12, base_family="sans") {
     panel.grid.minor.y = element_line(size=.1),
     ## transparent bg?
     plot.background = element_rect(fill = "transparent", colour = NA),
-    plot.title = element_text(color="#ffa775", face=2, size=16),
+    plot.title = element_text(color="grey60", face=2, size=20),
     plot.margin = grid::unit(c(1, 1, 0.5, 0.5), "lines"),
     strip.background = element_rect(fill="grey90", color="grey90"),
     strip.text = element_text(color="grey25"),
