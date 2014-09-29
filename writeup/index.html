@@ -6,7 +6,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 -->
 <html>
 <head>
-	<title>SummerDataChallenge | blm</title>
+	<title>datarea | SummerDataChallenge entry by blm</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -103,6 +103,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 		<div class="container">
 
 			<header>
+				<img src="images/logo3_hires.png" />
 				<h2 style="font-size: 4rem" class="alt">datarea</h2>
 				<!-- alt: Real data on your real estate -->
 				<h2 style="font-size: 2.6rem">Democratising real estate investment</h2>
@@ -123,9 +124,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 	<section id="data" class="two">
 		<div class="container">
 
-			<header>
+		<!--	<header>
 				<h2>Data</h2>
-			</header>
+			</header> -->
 
 			<p>
 				The dataset I chose lists <b>house sales</b> within 100 km of London
@@ -158,9 +159,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 		<section id="insights" class="three">
 			<div class="container">
 
-				<header>
+		<!--		<header>
 					<h2>Insights</h2>
-				</header>
+				</header>  -->
 
 				<p>
 					Consider a case study: for whatever reason, we're interested in a
@@ -178,7 +179,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 					and compare these trends with those of the local <span title="The first letter or two of the postcode: AA" class="tooltip">area</span>,
 					<span class="tooltip" title="The first letter(s) and number(2): AA12">district</span> and
 					<span class="tooltip" title="Postcode minus letters suffix: AA12 3">sector</span>. Overall
-					prices trends for London and the entire dataset (labelled South-East) are also shown:
+					price trends for London and the entire dataset (labelled South-East) are also shown:
 				</p>
 
 <!--
@@ -187,16 +188,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <script src="js/plots.js"></script>
 </div>
 -->
-<div style="width: 65%; margin: 5% auto;">
-<a href="images/sw18_full.png">
-	<img style="max-width:100%; max-height:auto;" src="images/sw18_thumb.png" />
-	</a>
-</div>
-
-<p>
-	In this instance we can see the small area SW18 4HU has been tracking below its district (SW18) and
-	far below the SW area, but roughly in line with the SW18 4 sector. Let's compare other postcodes in these divisions:
-</p>
 
 <div style="width: 95%; margin: 5% auto;">
 <a href="images/pc_full.png">
@@ -213,42 +204,53 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 					the median for the sector.
 				</p>
 
-				<p>
-					Thus, there exists business potential in providing a comprehensive and well-presented
-					statistical analysis of a given area, such as a postcode. What follows is a case study
-					for a single such identifier, explaining in detail the kind of insights we can glean
-					from this house-sale dataset, as well as other publicly-available datasets, to provide
-					a high-value service to end-users.
-				</p>
+<h3>Price trends</h3>
+<p>
+	As well as the spatial data, we have temporal information that can be used to assess
+	house price variation over approximately 5 years covered in the dataset (2009&ndash;14).
+	Continuing with our case study introduced above, we can visualise price trends across
+	area divisions.
+</p>
+
+<div style="width: 65%; margin: 5% auto;">
+<a href="images/sw18_full.png">
+	<img style="max-width:100%; max-height:auto;" src="images/sw18_thumb.png" />
+	</a>
+</div>
+
+<p>
+	In this instance we can see the small area SW18 4HU has been tracking below its district (SW18) and
+	far below the SW area, but roughly in line with the SW18 4 sector, as hinted at above. We can go further,
+	comparing price time series across regions:
+</p>
+
+<p>
+	Clustering these reveals the different time series profiles in the dataset, with examples:
+</p>
+<!-- multi-facted plots of clusters, highlight representative areas -->
+
+<p>
+	These visualisations describe an area's price history, if it fast-growing? Recently gentrified? Or an
+	area in relative stagnation. A particularly interested insight for the real estate speculator is in
+	forecasting models. Here techniques adapted from quantitative finance are applied to house price
+	time series:
+</p>
+
+<!-- ARIMA and/or STL forecasts of house prices. Which is expected to give the most growth? -->
 
 				<p>
+					The analyses performed in this work can be combined to give an "investment grade"
+					heuristic. This takes into account potential for growth, volatility, upfront cost,
+					and contextual information (is it tracking below nearby sectors or districts?).
+				</p>
+
+		<!--		<p>
 					It has not escaped my notice that such a service could add significant value to
 					existing house sales aggregators such as <a href="http://www.zoopla.co.uk/" target="_blank">Zoopla</a>,
 					<a href="http://www.rightmove.co.uk/" target="_blank">RightMove</a> <emph>et al.</emph>. Indeed,
 					such an add-on that requires data science expertise could be particularly valuable to
 					such established web platforms.
-				</p>
-
-				<h3>Seasonal trends</h3>
-				<p>
-					Here I decontruct the sales volume time series by week, looking at the most and least popular times for house buying.
-				</p>
-				<h3>Price rises</h3>
-				<p>
-					How have prices changed through this 5 year window? Importantly, where have the increased the most, and where the least? Can we extend trends to future predictions? Possibly there's some point in this short time period where prices appear to stagnate, when sellers might do better to wait a month or two in order to acheive the best price.
-				</p>
-				<h3>Factor correlating with price changes</h3>
-				<p>
-					Now I bring in other data, mapped to the London and South-East England area. What variables are most correlated with price increases? Maybe it's possible to detect the ripples of gentrification ahead of time.
-				</p>
-				<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
-
-				<p>Tincidunt eu elit diam magnis pretium accumsan etiam id urna. Ridiculus
-					ultricies curae quis et rhoncus velit. Lobortis elementum aliquet nec vitae
-					laoreet eget cubilia quam non etiam odio tincidunt montes. Elementum sem
-					parturient nulla quam placerat viverra mauris non cum elit tempus ullamcorper
-					dolor. Libero rutrum ut lacinia donec curae mus vel quisque sociis nec
-					ornare iaculis.</p>
+				</p>  -->
 
 				</div>
 			</section>
@@ -257,19 +259,50 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 			<section id="product" class="four">
 				<div class="container">
 
-					<header>
+				<!--	<header>
 						<h2>Product</h2>
-					</header>
+					</header> -->
+
+					<div style="margin 5% auto;">
+					<img src="images/logo3_hires.png" />
+					<h2 class="alt">datarea</h2>
+				</div>
 
 					<p>
-						Democratising real estate investment.
+						Democratising real estate investment
 					</p>
 
 					<p>
-						Here can go app mock-ups and general ideas for a business plan which makes use of the insights gained in the above section.
+						<span style="font-family: 'Comfortaa';">datarea</span> is a free, cross-platform app for
+						mobiles, tablets and the web which is capable of performing deep-dive analyses of property
+						areas, exploring temporospatial price histories and modelling future growth potential.
 					</p>
 
-					<h3> Relevant companies and organisations </h3>
+					<h3>Value generation</h3>
+					<p>
+						<span style="font-family: 'Comfortaa';">datarea</span> generates significant value for
+						property investors. Even the initial set of analyses &mdash; such as fractal context, price
+						trends and investment grading &mdash; provide insight into property markets which are currently
+						unavailable in any publicly-usable form.
+					</p>
+					<p>
+						Following validation of the business through
+						usage of our free mobile and web app, additional
+						data scientists would be brought on board to expand our available analyses, to be offered
+						under a subscription model. At this point we could move beyond publicly available datasets
+						to private sales information, potentially in collaboration with online property sales and letting
+						agents.
+					</p>
+
+					<h3>Exit strategy</h3>
+					<p>
+						Having built a proven system of valuable insight, <span style="font-family: 'Comfortaa';">datarea</span> could either: (a)
+						form the basis of a novel data-driven house sales and letting site, with embedded analyses and metrics aimed at the
+						professional martket, or (b) we might anticipate an acquisition by existing online letting and sales market-leaders, as providers of
+						additional house value insights for the consumer market.
+					</p>
+
+					<h3> Customer segments </h3>
 					<br />
 					<div class="row">
 						<div class="4u">
