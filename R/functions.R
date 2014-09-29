@@ -141,3 +141,12 @@ theme_sdc <- function(base_size=12, base_family="", use_sizes=TRUE) {
 
 ## End ggplot2 theme
 
+## blank theme, from: https://gist.github.com/dsparks/3711166#file-new_theme_empty-r
+new_theme_empty <- theme_bw()
+new_theme_empty$line <- element_blank()
+new_theme_empty$rect <- element_blank()
+new_theme_empty$strip.text <- element_blank()
+new_theme_empty$axis.text <- element_blank()
+new_theme_empty$plot.title <- element_blank()
+new_theme_empty$axis.title <- element_blank()
+new_theme_empty$plot.margin <- structure(c(0, 0, -1, -1), unit = "lines", valid.unit = 3L, class = "unit")

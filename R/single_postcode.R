@@ -1,7 +1,10 @@
+library("directlabels")
 library("dplyr")
 library("ggplot2")
 library("RColorBrewer")
 library("reshape2")
+library("rgdal")
+library("rgeos")
 source("R/functions.R")
 options(scipen=99)
 
@@ -18,14 +21,8 @@ top <- sort(table(houses$district), decreasing=T)
 head(top)
 
 # say you're looking at a house in: SW18 4HU 
-
 sw18 <- subset(houses, district == "SW18")
 sw184 <- subset(houses, sector == "SW18 4")
-
-# polar co-ord chart, month on month
-library("zoo")
-z <- zoo(houses$Price, houses$yearmon)
-houses$rollmed <- rollmedian(z, 3, fill=NA)
 
 sw18 <- subset(houses, district == "SW18")
 ggplot(sw18, aes(x=Trdate, y=Price)) +
@@ -64,14 +61,10 @@ all.res <- modelArea(houses, quarts, "South-East")
 
 qs <- rbind(london.res, sw.res, sw18.res, sw184.res, sw184hu.res, all.res)
 
-#qs <- data.frame(time=quarts, sw18=sw18.q, sw=sw.q, london=l.q, all=all.q)
-#qs <- melt(qs, id.vars="time")
-
 cols <- rev(brewer.pal(5, "Blues")[-1])
 # last two: grey shaded
 cols <- c(cols, "grey60", "grey80")
 
-library("directlabels")
 qs$area <- factor(qs$area, 
             levels=c("SW18 4HU", "SW18 4", "SW18", "SW", "London", "South-East"))
 
@@ -91,7 +84,6 @@ ggplot(qs, aes(x=time, y=fit/1000, col=area, fill=area)) +
   annotate("text", x=as.Date("2010-02-01"), y=780, 
            label="SW18 4HU", size=7, col=I("grey50"))
 dev.off()
-
 
 ## compare with other postcodes in SW18 4:
 ggplot(sw184, aes(x=Trdate, y=Price, col=Postcode)) +
@@ -139,8 +131,6 @@ ggplot(sw18, aes(x=sector, y=Price/1e3)) +
   annotate("text", x="SW18 4", y=7.5e3, label="SW18", col=I("grey40"), size=6)
 dev.off()
 
-london.s
-
 ## London 
 london.s <- group_by(ldn, area) %>% 
   summarise(med=median(Price))
@@ -165,7 +155,29 @@ ggplot(ldn, aes(x=area, y=Price/1e3)) +
             color=I(rgb(12, 61, 137, max=255)), size=3) +
   theme(axis.text.y=element_blank())
 dev.off()
-  
-library("ggmap")
-map <- get_map(location="SW18 4HU", zoom=17, maptype="hybrid")
-ggmap(map, extent="device")
+
+# from : https://en.wikipedia.org/wiki/SW_postcode_area
+swmap <- readOGR("R/sw.kml", "SW")
+swggmap <- fortify(swmap)
+
+# group translates to postcode, get these via:
+#    sed -e 's,.*<name>\([^<]*\)</name>.*,\1,g' sw.kml 
+g2pc <- c("SW1A", "SW1E", "SW1H", "SW1P", "SW1V", "SW1W", 
+          "SW1X", "SW1Y", "SW2", "SW3", "SW4", "SW5", "SW6", 
+          "SW7", "SW8", "SW9", "SW10", "SW11", "SW12", "SW13", 
+          "SW14", "SW15", "SW16", "SW17", "SW18", "SW19", "SW20")
+
+# munge and plot
+district.s <- group_by(sw, district) %>%
+  summarise(m=median(Price))
+district.s <- district.s[match(g2pc, district.s$district),]
+swggmap$fcol <- rep(district.s$m, rle(as.character(swggmap$group))$lengths)
+
+svg("plots/swmap.svg", 4.5, 3)
+ggplot(swggmap) + 
+  geom_polygon(aes(x=long, y=lat, group=id, fill=fcol/1e3), col="white") +
+  #scale_colour_manual(values=c(rep("white", 24), "black", "white", "white")) +
+  scale_fill_gradientn(trans="log", colours=brewer.pal(9, "Blues")[-1],
+                       breaks=c(1e2, 5e2, 1e3, 5e3)) +
+  new_theme_empty + labs(fill="5yr median \nhouse prices (£k)")
+dev.off()
