@@ -85,9 +85,13 @@ theme_sdc_null <- function(base_size=12, base_family="sans") {
     panel.grid.major = element_line(size=.4),
     panel.grid.major.x = element_line(),
     panel.grid.major.y = element_line(),
-    panel.grid.minor = element_line(),
-    panel.grid.minor.x = element_line(size=.1),
-    panel.grid.minor.y = element_line(size=.1),
+    # removed:
+    #panel.grid.minor = element_line(),
+    #panel.grid.minor.x = element_line(size=.1),
+    #panel.grid.minor.y = element_line(size=.1),
+    panel.grid.minor = element_blank(),
+    panel.grid.minor.x = element_blank(),
+    panel.grid.minor.y = element_blank(),
     ## transparent bg?
     plot.background = element_rect(fill = "transparent", colour = NA),
     plot.title = element_text(color="grey60", face=2, size=20),
