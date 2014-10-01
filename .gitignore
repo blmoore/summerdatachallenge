@@ -16,3 +16,21 @@ ONSPD_MAY_2014_csv/
 osmaps/
 
 *.zip
+
+*.toc
+
+*.lot
+
+*.log
+
+*.lof
+
+*.fls
+
+*.fdb_latexmk
+
+*.blg
+
+report/article_4.out
+
+report/article_4.bbl
