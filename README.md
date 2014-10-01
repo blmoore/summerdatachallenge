@@ -1,6 +1,6 @@
 <p align="center">
 <img src="writeup/images/logo3_hires.png" />
-<img src="logo_designs / datarea.png" />
+<img src="logo_designs/datarea.png" />
 </p>
 
 #summerdatachallenge
