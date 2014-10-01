@@ -34,14 +34,15 @@ BCOR5mm, % Binding correction
 
 %% additional packages:
 \usepackage{wrapfig}
-\usepackage[left=1.5in,right=1in,top=1in,bottom=1in]{geometry}
+\usepackage[left=1.2in,right=1in,top=1in,bottom=1in]{geometry}
 \usepackage{caption}
 
 %----------------------------------------------------------------------------------------
 %	TITLE AND AUTHOR(S)
 %----------------------------------------------------------------------------------------
 
-\title{\includegraphics[width=5cm]{Figures/datarea.pdf} \\
+\title{ \vspace{-3em}
+\includegraphics[width=5cm]{Figures/datarea.pdf} \\
 {\large \#SummerDataChallenge}} % The article title
 
 \author{ {\large Benjamin L. Moore\textsuperscript{1}}} % The article author(s) - author affiliations need to be specified in the AUTHOR AFFILIATIONS block
@@ -95,12 +96,13 @@ profitable investments. Finally, these and other metrics were combined
 into an \emph{investment grade} for a given postcode area. Combined
 this set of analyses forms the basis of \logo, a product aimed at
 ``democratising real estate investment'', offering individuals and
-businesses quantitative insights for data-driven investment
+businesses quantitative real estate insights for data-driven investment
 decisions. 
 
-A fully-featured report is online at {\bf \href{http://blm.io/datarea}{blm.io} }and
-scripts to reproduce all analyses are available from
-{\bf \href{http://github.com/blmoore/summerdatachallenge}{github}}.
+A full report with additional visualisations is online at {\bf
+  \href{http://blm.io/datarea}{blm.io/datarea} }and scripts to
+reproduce all analyses are available from {\bf
+  \href{http://github.com/blmoore/summerdatachallenge}{github.com/blmoore/summerdatachallenge}}.
 
 %----------------------------------------------------------------------------------------
 %	AUTHOR AFFILIATIONS
@@ -120,23 +122,21 @@ scripts to reproduce all analyses are available from
 \section{Description of analyses}
 
 When considering a property in a given area, you may ask a realtor
-questions like, how do prices here compare to surrounding postcodes?
-How have prices increased over time? 
+questions like: how do prices here compare to surrounding postcodes?
+How have prices increased over time?  A real estate professional can
+give an opinion based on their own limited sample size, but with a
+large dataset we can address these questions quantitatively and
+visualise the results.
 
-\setlength{\intextsep}{.1em}
+\subsection{Fractal context}
+
+\setlength{\intextsep}{0em}
 \begin{wrapfigure}{R}{.45\textwidth}
 \begin{center}
 \includegraphics[width=.44\textwidth]{Figures/fractal.png}
 \caption{ Fractal context of postcode SW18 4HU in Wandsworth, South London.}
 \end{center}
 \end{wrapfigure}
-
-A real estate professional can give an opinion based on anecdotal
-evidence and the limited sample size they have experienced, but with a
-large dataset we can address these questions quantitatively and
-present them as clear visualisations.
-
-\subsection{Fractal context}
 
 Letting and sales sites may currently list some recent sales, but it's
 not currently possible to see a quantitative overview of property
@@ -145,16 +145,16 @@ postcode.
 
 These questions can be answered with a clear and intuitive data
 visualisation of price distributions in the postcode hierarchy --- we
-call this the fractal context of a property price.
+call this the fractal context of a property price (Figure 1).
 
-\subsection{ARIMA forecasting}
+\subsection{ARIMA modelling}
 
-Given area price histories, it's of interest to investors to speculate
-on potential investment returns for a given property area. This can be
-done through time series analysis using the autoregressive integrated
-moving average (ARIMA) model. Investment returns can be maximised by
-selecting areas with maximal growth
-projections.\textsuperscript{$\star$} \\
+Given a time series of housing prices, it's of interest to investors
+to speculate on potential investment returns for a given property
+area. This can be done through time series analysis using the
+autoregressive integrated moving average (ARIMA) model (Figure
+2). Investment returns can be optimised by selecting areas with
+maximal growth projections.\textsuperscript{$\star$} \\
 
 \begin{figure}[h]
 \begin{center}
@@ -194,23 +194,20 @@ helping to validate the business model.
 \end{center}
 \end{wrapfigure}
 
-A small data science team could expand analyses, integrating novel
-public and privately-acquired datasets and release them under a
-rolling subscription model, aimed at private landlords and property
-speculators, as well as professional real estate investment trusts
-(REITs). Significant revenue could be generated through tailored
-partnerships with funds and high net-worth individuals.
+A small data science team will gradually expand the range of analyses
+offered, integrating novel public and privately-acquired datasets and
+release them under a rolling subscription model, aimed at private
+landlords and property speculators, as well as professional real
+estate investment trusts (REITs). Significant revenue could be
+generated through tailored partnerships with funds and high net-worth
+individuals.
 
-Should the product not succeed in a direct-to-consumer market, the
-business could pivot to an analytics provider for existing letting and
-sales sites, offering unique data insights indirectly to the consumer
-market, or as independent fund consultants for the financial
-services. Having produced a functional product positions \logo \hspace{.1em} to
-succeed in innovative real estate analytics.
-
-\begin{flushright}
-{\small Full version online at: \href{http://blm.io/datarea}{blm.io/datarea}}
-\end{flushright}
+Additionally the business could pivot to an analytics provider for
+existing letting and sales sites, offering unique data insights
+indirectly to the consumer market, or as independent fund consultants
+for the financial services. Having produced a first-to-market
+innovative product positions \logo \hspace{.1em} to succeed as a
+provider of advanced real estate investment analytics. \\
 
 \begin{figure}[h!]
 \begin{center}
@@ -219,5 +216,10 @@ succeed in innovative real estate analytics.
 \caption*{ {\sf Democratising real estate investment}}
 \end{center}
 \end{figure}
+
+\vspace{1em}
+\begin{flushright}
+{\small An enhanced overview of this entry is available online at: \href{http://blm.io/datarea}{blm.io/datarea}}
+\end{flushright}
 
 \end{document}
