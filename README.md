@@ -3,12 +3,8 @@
 <img src="logo_designs/datarea.png" />
 </p>
 
-#summerdatachallenge
-====================
-
 This repo containts my entry for Imperial create lab's [summerdatachallenge](http://summerdatachallenge.com).
 
-Each Rscript will reproduce figures from my report and [web version](http://blm.io/datarea)
+The challenge was to apply data science techniques to one or more of a number of supplied datasets.
 
-datarea
-=======
+Each Rscript will reproduce figures from my report and [web version](http://blm.io/datarea)
