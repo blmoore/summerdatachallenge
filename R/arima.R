@@ -3,8 +3,10 @@ library("dplyr")
 library("forecast")
 library("ggplot2")
 library("zoo")
+source("R/functions.R")
 
-s <- sw184[sw184$Postcode == "SW18 4HU",]
+houses <- loadHouses()
+s <- houses[houses$Postcode == "SW18 4HU",]
 s <- group_by(s, Month) %>% summarise(median=median(Price))
 
 # n.b. non-stationary time series
@@ -77,7 +79,7 @@ ggplot(pdf, aes(x=Month, y=median/1e3)) +
               alpha=I(.2)) +
   geom_ribbon(data=vars, inherit.aes=F,
               aes(x=Month, ymin=l95/1e3, ymax=h95/1e3),
-              alpha=I(.1)) +
+              alpha=I(.1), fill=I(rgb(61, 133, 193, max=255))) +
   labs(y="Median house price (£k)", x="") +
   theme(legend.position=c(.2,.8)) +
   annotate("text", x=as.Date("2010-06-01"), size=8,

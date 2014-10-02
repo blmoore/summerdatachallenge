@@ -34,7 +34,7 @@ BCOR5mm, % Binding correction
 
 %% additional packages:
 \usepackage{wrapfig}
-\usepackage[left=1.2in,right=1in,top=1in,bottom=1in]{geometry}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 \usepackage{caption}
 
 %----------------------------------------------------------------------------------------
@@ -42,10 +42,12 @@ BCOR5mm, % Binding correction
 %----------------------------------------------------------------------------------------
 
 \title{ \vspace{-3em}
-\includegraphics[width=5cm]{Figures/datarea.pdf} \\
-{\large \#SummerDataChallenge}} % The article title
+\includegraphics[width=.1\textwidth]{Figures/logo.png} \\
+\includegraphics[width=4cm]{Figures/datarea.pdf} \\
+} % The article title
 
-\author{ {\large Benjamin L. Moore\textsuperscript{1}}} % The article author(s) - author affiliations need to be specified in the AUTHOR AFFILIATIONS block
+\author{  Summer data challenge entry by Benjamin
+  L. Moore\textsuperscript{1} } % The article author(s) - author affiliations need to be specified in the AUTHOR AFFILIATIONS block
 
 \date{} % An optional date to appear under the author(s)
 
@@ -90,14 +92,14 @@ BCOR5mm, % Binding correction
 I analysed the {\bf London house prices} dataset is several innovative
 ways. Firstly \emph{fractal context} shows how house sales within an
 arbitrary area relate to those if neighbouring districs, up and down
-the postcode hierarchy. Secondly, I employed \emph{ARIMA forecasting}
-to extrapolate an area's price trend with an eye to suggesting
-profitable investments. Finally, these and other metrics were combined
-into an \emph{investment grade} for a given postcode area. Combined
-this set of analyses forms the basis of \logo, a product aimed at
-``democratising real estate investment'', offering individuals and
-businesses quantitative real estate insights for data-driven investment
-decisions. 
+the postcode hierarchy. Secondly, I fit \emph{ARIMA models} to
+forecast an area's price trend into the future, with an eye to
+suggesting profitable investments. Finally, these and other metrics
+were combined into an \emph{investment grade} for a given postcode
+area. Combined this set of analyses forms the basis of \logo, a
+product aimed at ``democratising real estate investment'', offering
+individuals and businesses quantitative real estate insights for
+data-driven investment decisions.
 
 A full report with additional visualisations is online at {\bf
   \href{http://blm.io/datarea}{blm.io/datarea} }and scripts to
@@ -119,7 +121,7 @@ reproduce all analyses are available from {\bf
 %	INTRODUCTION
 %----------------------------------------------------------------------------------------
 
-\section{Description of analyses}
+\section*{Description of analyses}
 
 When considering a property in a given area, you may ask a realtor
 questions like: how do prices here compare to surrounding postcodes?
@@ -133,7 +135,7 @@ visualise the results.
 \setlength{\intextsep}{0em}
 \begin{wrapfigure}{R}{.45\textwidth}
 \begin{center}
-\includegraphics[width=.44\textwidth]{Figures/fractal.png}
+\includegraphics[width=.44\textwidth]{Figures/fractal.pdf}
 \caption{ Fractal context of postcode SW18 4HU in Wandsworth, South London.}
 \end{center}
 \end{wrapfigure}
@@ -158,7 +160,7 @@ maximal growth projections.\textsuperscript{$\star$} \\
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=.9\textwidth]{Figures/arima.png}
+\includegraphics[width=.9\textwidth]{Figures/arima.pdf}
 \caption{Example ARIMA forecast of median house prices for a specific postcode.}
 \end{center}
 \end{figure}
