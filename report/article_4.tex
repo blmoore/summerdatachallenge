@@ -43,7 +43,7 @@ BCOR5mm, % Binding correction
 
 \title{ \vspace{-3em}
 \includegraphics[width=.1\textwidth]{Figures/logo.png} \\
-\includegraphics[width=4cm]{Figures/datarea.pdf} \\
+\includegraphics[width=4cm]{Figures/logotext.png} \\
 } % The article title
 
 \author{  Summer data challenge entry by Benjamin
@@ -55,7 +55,7 @@ BCOR5mm, % Binding correction
 
 % custom macros:
 
-\newcommand*{\logo}{\includegraphics[scale=.22]{Figures/datarea.pdf}}
+\newcommand*{\logo}{\includegraphics[scale=.04]{Figures/logotext.png}}
 
 \begin{document}
 
@@ -121,7 +121,8 @@ reproduce all analyses are available from {\bf
 %	INTRODUCTION
 %----------------------------------------------------------------------------------------
 
-\section*{Description of analyses}
+\vspace{-1em}
+\section*{Analyses}
 
 When considering a property in a given area, you may ask a realtor
 questions like: how do prices here compare to surrounding postcodes?
@@ -130,12 +131,12 @@ give an opinion based on their own limited sample size, but with a
 large dataset we can address these questions quantitatively and
 visualise the results.
 
-\subsection{Fractal context}
+\subsection*{Fractal context}
 
 \setlength{\intextsep}{0em}
 \begin{wrapfigure}{R}{.45\textwidth}
 \begin{center}
-\includegraphics[width=.44\textwidth]{Figures/fractal.pdf}
+\includegraphics[width=.44\textwidth]{Figures/fractal.png}
 \caption{ Fractal context of postcode SW18 4HU in Wandsworth, South London.}
 \end{center}
 \end{wrapfigure}
@@ -149,7 +150,13 @@ These questions can be answered with a clear and intuitive data
 visualisation of price distributions in the postcode hierarchy --- we
 call this the fractal context of a property price (Figure 1).
 
-\subsection{ARIMA modelling}
+A specific postcode or area can be marked within its distribution,
+giving a clear view of a properties relative pricing which cannot be
+gleaned just by browsing recent sales. The example view (Figure 1)
+combines ranked violin density plots and a geo-heatmap for a clear,
+intuitive view of a locations price context.
+
+\subsection*{ARIMA modelling}
 
 Given a time series of housing prices, it's of interest to investors
 to speculate on potential investment returns for a given property
@@ -160,19 +167,40 @@ maximal growth projections.\textsuperscript{$\star$} \\
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=.9\textwidth]{Figures/arima.pdf}
+\includegraphics[width=.9\textwidth]{Figures/arima.png}
 \caption{Example ARIMA forecast of median house prices for a specific postcode.}
 \end{center}
 \end{figure}
 
 \vspace{-2em}
-\subsection{Investment grading}
+\subsection*{Investment grading}
 
-Combining growth forecasts and contextual information, as well as
-other derived metrics from this dataset, allow an approximate
-investment grading, relative to other postcodes within the area
-covered by this dataset. This intuitive output metric can help
-prioritise areas ripe for property investment. \\
+Combining growth forecasts and other derived metrics from this
+dataset allow an approximate investment grading, relative to other
+postcodes within the area covered by this dataset. This intuitive
+output metric can help prioritise areas ripe for property investment.
+
+As an example, Figure 3 shows the top 5 best-ranked postcode sectors
+in which to invest, according to their 12-month price growth forecast
+and historical annualised volatility --- thus combining the empirical
+data with theoretical model outputs. \\
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=.9\textwidth]{Figures/t5.pdf}
+\caption{Top 5 property investment sectors by projected returns and historical volatility.}
+\end{center}
+\end{figure}
+
+The rankings used in Figure 3 made use of the $drift$ parameter of
+ARIMA models, combined with statistical volatility over the five year
+house prices dataset. Both parameters were converted to quantiles and
+weighted equally, with those sectors with the largest projected growth
+and lowest historical volatility receive the highest investment grade.
+
+\vspace{-1em}
+\section*{Summary}
+These initial 
 
 {\let\thefootnote\relax\footnotetext{\textsuperscript{$\star$}
     Data intended to assist investors and does not constitute
@@ -181,8 +209,8 @@ prioritise areas ripe for property investment. \\
 %----------------------------------------------------------------------------------------
 %	METHODS
 %----------------------------------------------------------------------------------------
-\vspace{-2em}
-\section{Value generation}
+\clearpage
+\section*{Value generation}
 
 \logo \hspace{.1em} would first be released as both a web service and
 associated apps for mobiles and tablets. These would offer limited
@@ -214,7 +242,7 @@ provider of advanced real estate investment analytics. \\
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[width=.1\textwidth]{Figures/logo.png} \\
-\includegraphics[scale=.4]{Figures/datarea.pdf} \\
+\includegraphics[scale=.12]{Figures/logotext.png} \\
 \caption*{ {\sf Democratising real estate investment}}
 \end{center}
 \end{figure}

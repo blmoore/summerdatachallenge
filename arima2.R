@@ -124,6 +124,7 @@ plotForecast <- function(out){
 modelHPs <- function(sector){
   #sector="W6 7"
   data <- houses[houses$sector == sector,]
+  # aggregate by monht
   data <- group_by(data, Month) %>% summarise(median=median(Price))
   data.ts <- ts(data$median, as.numeric(as.yearmon(data$Month)))
   arima <- auto.arima(data.ts)
