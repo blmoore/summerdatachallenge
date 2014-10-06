@@ -126,17 +126,19 @@ reproduce all analyses are available from {\bf
 
 When considering a property in a given area, you may ask a realtor
 questions like: how do prices here compare to surrounding postcodes?
-How have prices increased over time?  A real estate professional can
-give an opinion based on their own limited sample size, but with a
-large dataset we can address these questions quantitatively and
-visualise the results.
+How have prices increased over time? And how have prices changed over
+time? A real estate professional can give an opinion based on their
+own limited sample size, but with a large dataset we can address these
+questions quantitatively and visualise the results.
 
 \subsection*{Fractal context}
 
 \setlength{\intextsep}{0em}
-\begin{wrapfigure}{R}{.45\textwidth}
+\begin{wrapfigure}{R}{.5\textwidth}
+\vspace{1em}
 \begin{center}
-\includegraphics[width=.44\textwidth]{Figures/fractal.png}
+\includegraphics[width=.48\textwidth]{Figures/fractal.png}
+\vspace{.5em}
 \caption{ Fractal context of postcode SW18 4HU in Wandsworth, South London.}
 \end{center}
 \end{wrapfigure}
@@ -161,9 +163,12 @@ intuitive view of a locations price context.
 Given a time series of housing prices, it's of interest to investors
 to speculate on potential investment returns for a given property
 area. This can be done through time series analysis using the
-autoregressive integrated moving average (ARIMA) model (Figure
-2). Investment returns can be optimised by selecting areas with
-maximal growth projections.\textsuperscript{$\star$} \\
+autoregressive integrated moving average (ARIMA) model (Figure 2). The
+model fitting procedure included regularisation that allowed a $drift$
+term to model non-stationary trends, as well as coefficients capturing
+periodicity or seasonal effects. Potential investment returns could be
+optimised by selecting areas with
+maximal growth projections. \\
 
 \begin{figure}[h]
 \begin{center}
@@ -172,7 +177,7 @@ maximal growth projections.\textsuperscript{$\star$} \\
 \end{center}
 \end{figure}
 
-\vspace{-2em}
+\vspace{-1em}
 \subsection*{Investment grading}
 
 Combining growth forecasts and other derived metrics from this
@@ -183,7 +188,9 @@ output metric can help prioritise areas ripe for property investment.
 As an example, Figure 3 shows the top 5 best-ranked postcode sectors
 in which to invest, according to their 12-month price growth forecast
 and historical annualised volatility --- thus combining the empirical
-data with theoretical model outputs. \\
+data with theoretical model outputs. These include South London
+suburbs of Upper Tooting and Morden, Walthamstow, as well as Brockley,
+whose train station within SE4 1 was linked with the London overground network in 2010.\\
 
 \begin{figure}[h]
 \begin{center}
@@ -196,11 +203,7 @@ The rankings used in Figure 3 made use of the $drift$ parameter of
 ARIMA models, combined with statistical volatility over the five year
 house prices dataset. Both parameters were converted to quantiles and
 weighted equally, with those sectors with the largest projected growth
-and lowest historical volatility receive the highest investment grade.
-
-\vspace{-1em}
-\section*{Summary}
-These initial 
+and lowest historical volatility receive the highest investment grade.\textsuperscript{$\star$}
 
 {\let\thefootnote\relax\footnotetext{\textsuperscript{$\star$}
     Data intended to assist investors and does not constitute
@@ -212,6 +215,9 @@ These initial
 \clearpage
 \section*{Value generation}
 
+\subsection*{Socio-economic value}
+
+\subsection*{Initial product}
 \logo \hspace{.1em} would first be released as both a web service and
 associated apps for mobiles and tablets. These would offer limited
 analysis and visualisation for free, with user analytics and feedback
@@ -246,6 +252,8 @@ provider of advanced real estate investment analytics. \\
 \caption*{ {\sf Democratising real estate investment}}
 \end{center}
 \end{figure}
+
+\subsection*{Business development}
 
 \vspace{1em}
 \begin{flushright}
