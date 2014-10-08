@@ -89,6 +89,15 @@ BCOR5mm, % Binding correction
 \vspace{-4em}
 \section*{Overview} 
 
+\setlength{\intextsep}{0em}
+\begin{wrapfigure}{R}{.3\textwidth}
+%\vspace{-1em}
+\centering
+\includegraphics[width=.28\textwidth]{Figures/overview.png}
+%\vspace{-1em}
+\caption{ Mapped house sales, brightness is proportional to price.}
+\end{wrapfigure}
+
 I analysed the {\bf London house prices} dataset is several innovative
 ways. Firstly \emph{fractal context} shows how house sales within an
 arbitrary area relate to those if neighbouring districs, up and down
@@ -102,9 +111,9 @@ individuals and businesses quantitative real estate insights for
 data-driven investment decisions.
 
 A full report with additional visualisations is online at {\bf
-  \href{http://blm.io/datarea}{blm.io/datarea} }and scripts to
+  \leavevmode\href{http://blm.io/datarea}{blm.io/datarea} }and scripts to
 reproduce all analyses are available from {\bf
-  \href{http://github.com/blmoore/summerdatachallenge}{github.com/blmoore/summerdatachallenge}}.
+  \leavevmode\href{http://github.com/blmoore/summerdatachallenge}{github.com/blmoore/summerdatachallenge}}.
 
 %----------------------------------------------------------------------------------------
 %	AUTHOR AFFILIATIONS
@@ -131,17 +140,16 @@ time? A real estate professional can give an opinion based on their
 own limited sample size, but with a large dataset we can address these
 questions quantitatively and visualise the results.
 
-\subsection*{Fractal context}
-
-\setlength{\intextsep}{0em}
-\begin{wrapfigure}{R}{.5\textwidth}
-\vspace{1em}
-\begin{center}
-\includegraphics[width=.48\textwidth]{Figures/fractal.png}
-\vspace{.5em}
+%\setlength{\intextsep}{0em}
+\begin{wrapfigure}[17]{L}{.45\textwidth}
+%\vspace{-1em}
+\centering
+\includegraphics[width=.43\textwidth]{Figures/fractal.png}
 \caption{ Fractal context of postcode SW18 4HU in Wandsworth, South London.}
-\end{center}
+%\vspace{35em}
 \end{wrapfigure}
+
+\subsection*{Fractal context}
 
 Letting and sales sites may currently list some recent sales, but it's
 not currently possible to see a quantitative overview of property
@@ -292,7 +300,7 @@ products would place us as a market leader in this undeveloped segment.
 
 \vspace{1em}
 \begin{flushright}
-{\small An enhanced overview of this entry is available online at: \href{http://blm.io/datarea}{blm.io/datarea}}
+{\small An enhanced overview of this entry is available online at: \leavevmode\href{http://blm.io/datarea}{blm.io/datarea}}
 \end{flushright}
 
 \end{document}
