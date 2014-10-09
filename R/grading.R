@@ -112,3 +112,6 @@ hist(top.grades$vol, add=T, freq=F, col=rgb(.8,.5,.5,.2))
 
 df <- df[,c(1,2,4,3,5,8,6:7)]
 saveRDS(df, "rds/invest_grade.rds")
+
+
+head(df[df$sector=="SW18 4",])

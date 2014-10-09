@@ -226,8 +226,19 @@ whose train station within SE4 1 was linked with the London overground network i
 The rankings used in Figure 3 made use of the $drift$ parameter of
 ARIMA models, combined with statistical volatility over the five year
 house prices dataset. Both parameters were converted to quantiles and
-weighted equally, with those sectors with the largest projected growth
-and lowest historical volatility receive the highest investment grade.\textsuperscript{$\star$}
+weighted equally; those sectors with the highest projected growth
+and least historical volatility receive the highest investment grade
+(on a scale of AAA, AA, A, BBB \ldots C).\textsuperscript{$\star$}
+
+Returning to our original example, we can conclude that SW18 4HU is a
+promising choice of area for property investment. It's approximately
+median-priced for the sector, which is the cheapest of SW18 (in turn
+part of the desirable SW London area; Figure 1). It has good growth
+projections of XX in the next 12 months (Figure 2), and when combined
+with volatility and compared with all $\approx2600$ sectors in the
+dataset, receives the top AAA investment grade, placing it in the
+90\textsuperscript{th} percentile for predicted price growth and low
+historical volatility.
 
 {\let\thefootnote\relax\footnotetext{\textsuperscript{$\star$}
     Data intended to assist investors and does not constitute
@@ -236,13 +247,16 @@ and lowest historical volatility receive the highest investment grade.\textsuper
 %----------------------------------------------------------------------------------------
 %	METHODS
 %----------------------------------------------------------------------------------------
-%\clearpage
+\clearpage
 \section*{Value generation}
 
 The above-described analyses form the basis of \logo\hspace{.1em}, a
-start-up aimed at ``democratising real estate investment'' by
-making deep-dive analytics data available both to a consumer and
-professional investment market.
+start-up aimed at ``democratising real estate investment'' by making
+deep-dive analytics data available both to a consumer and professional
+investment market. Initially \logo\hspace{.1em} is a provider of
+information aimed at investors but cannot dispense investment advice
+until authorised to do so by the FCA. Three initial areas of interest
+to commercialise and generate social and economic value are listed:
 
 \subsection*{1. Analytics provider for online house sales and lettings
 agents}
@@ -281,12 +295,17 @@ the data-driven insights and visualisations we offer.
 visualisation without any fee, with collected user data and feedback helping to
 validate the business model and develop our software.
 
-\begin{wrapfigure}[11]{r}{.4\textwidth}
+\begin{wrapfigure}[12]{r}{.4\textwidth}
 \centering
 \includegraphics[width=.39\textwidth]{Figures/mockup.png}
 \caption{ iOS app mock-up.}
-\vspace{-2em}
+%\vspace{-1em}
 \end{wrapfigure}
+
+Releasing these products aligns with our aims of democratising real
+estate investment. Amateur property investors and prospective
+landlords can make data-driven decisions, the likes of which are likely
+already employed by large investment trusts and funds. 
 
 A small data science team will gradually expand the range of analyses
 offered, integrating novel public and privately-acquired datasets and
@@ -300,10 +319,11 @@ individuals.
 
 Having established a property area analytics brand, \logo\hspace{.1em}
 will look to develop business relationships with real estate
-investment funds and high net-worth individuals as a data-driven
-propert investment consultancy and independent analyst for the
+investment funds and high net-worth individuals as a {\bf quantitative
+  property investment consultancy} and independent analyst for the
 financial services. Our domain expertise and existing partnerships and
-products would place us as a market leader in this undeveloped segment.
+products would place us as a market leader in this undeveloped
+segment.
 
 % \begin{figure}[h!]
 % \begin{center}
@@ -314,8 +334,9 @@ products would place us as a market leader in this undeveloped segment.
 % \end{figure}
 
 \vspace{1em}
-\begin{flushright}
-{\small An enhanced overview of this entry is available online at: \leavevmode\href{http://blm.io/datarea}{blm.io/datarea}}
+\begin{flushright} {\small An enhanced online version of this short
+    report is available at:
+    \leavevmode\href{http://blm.io/datarea}{blm.io/datarea}}
 \end{flushright}
 
 \end{document}

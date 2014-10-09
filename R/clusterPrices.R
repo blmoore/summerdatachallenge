@@ -1,9 +1,16 @@
+### Unused preliminary clustering work
+library("dtw")
+library("gplots")
+library("pvclust")
+library("RColorBrewer")
+library("reshape2")
+library("snow")
+library("TSclust")
 source("R/functions.R")
 set.seed(2)
 
 ## cluster monthly price change profiles
 houses <- loadHouses()
-
 
 # sample 20 random postcodes for clustering
 # redraw london as clustered by price
@@ -17,9 +24,6 @@ ggplot(sub, aes(x=yearmon, y=Price/1e3, group=sector)) +
   facet_wrap(~sector, ncol=5, scales="free_y") +
   theme_sdc()
 
-
-head(houses)
-library("reshape2")
 hm <- dcast(houses, sector ~ yearmon, 
             fun.aggregate=median, value.var="Price")
 
@@ -27,9 +31,6 @@ hm <- dcast(houses, sector ~ yearmon,
 hm.mask <- dcast(houses, sector ~ yearmon,  value.var="Price")
 
 image(log10(as.matrix(hm[,-1])+1))
-
-library("gplots")
-library("RColorBrewer")
 
 num.cols=24
 
@@ -46,9 +47,6 @@ heatmap.2(log10(as.matrix(hm[complete.cases(hm),-1])),
           RowSideColors=heat.colors(max(rsc))[rsc],
           breaks=quantile(log10(houses$Price), seq(0.01, .97, length.out=(num.cols+1))))
 
-length(rsc)
-
-library("dtw")
 ts.dist <- function(x, ...)
   dist(x, method="DTW")
 
@@ -62,7 +60,7 @@ heatmap.2(mat, dendrogram="row", trace="none", Colv=NULL,
           distfun=ts.dist, hclustfun=hc, RowSideColors=rowcols,
           col=bl, labRow=F, labCol=row.lab, srtCol=45, breaks=brks)
 
-library("TSclust")
+
 sax.dist <- function(x, ...)
   # try dist on un-transformed values
   diss(as.matrix(hm[complete.cases(hm),-1]), "DWT", ...)
@@ -76,9 +74,6 @@ heatmap.2(mat, dendrogram="row", trace="none", Colv=NULL,
 
 dist.mat <- sax.dist(mat)
 
-
-library("pvclust")
-library("snow")
 cli <- makeCluster(6, type="MPI")
 clustered <- parPvclust(cli, t(mat), method.hclust="centroid",
                         method.dist="correlation", nboot=50)

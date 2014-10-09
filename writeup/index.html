@@ -20,10 +20,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 	<script src="js/Chart.min.js"></script>
 	<!-- favicon -->
 	<link rel="icon"
-      type="image/png"
-      href="favicon.ico">
+	type="image/png"
+	href="favicon.ico">
 	<!-- google fonts -->
-	<link href='http://fonts.googleapis.com/css?family=Comfortaa:300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Comfortaa:300,700' rel='stylesheet' type='text/css'>
 	<noscript>
 		<link rel="stylesheet" href="css/skel.css" />
 		<link rel="stylesheet" href="css/style.css" />
@@ -104,29 +104,29 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 			<header>
 				<img src="images/logo3_hires.png" />
-				<h2 style="font-size: 4rem" class="alt">datarea</h2>
+				<h2 style="font-size: 4rem" class="alt">dat<span style="font-weight:700">area</span></h2>
 				<!-- semi-phonetics -->
 				<span style="font-style: italic">(day&middot;'tair-eya)</span>
 				<!-- alt: Real data on your real estate -->
 				<h2 style="font-size: 2.6rem">Democratising real estate investment</h2>
 				<p style="font-size: .85rem"><a href="http://summerdatachallenge.com/" target="_blank">#SummerDataChallenge</a> entry by
 					<a href="https://twitter.com/benjaminlmoore" target="_blank">@benjaminlmoore</a>, University of Edinburgh, UK</p>
-				<br /><br /><br />
-			</header>
+					<br /><br /><br />
+				</header>
 
-			<footer>
-				<!-- <a href="#portfolio" class="button scrolly">Magna Aliquam</a> -->
+				<footer>
+					<!-- <a href="#portfolio" class="button scrolly">Magna Aliquam</a> -->
 
-			</footer>
+				</footer>
 
-		</div>
-	</section>
+			</div>
+		</section>
 
-	<!-- Portfolio -->
-	<section id="data" class="two">
-		<div class="container">
+		<!-- Portfolio -->
+		<section id="data" class="two">
+			<div class="container">
 
-		<!--	<header>
+				<!--	<header>
 				<h2>Data</h2>
 			</header> -->
 
@@ -168,72 +168,67 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 					&mdash; just south of the river.
 				</p>
 
-<div style="width: 40%; margin: 0% 5%; float: right;">
-	<img style="max-width:100%; max-height:auto;" src="images/sw18_4hu.png" atl="Sunny Wandsworth"/>
-</div>
+				<div style="width: 40%; margin: 0% 5%; float: right;">
+					<img style="max-width:100%; max-height:auto;" src="images/sw18_4hu.png" atl="Sunny Wandsworth"/>
+				</div>
 
-				<p>
-					With some data analysis of a huge 1.4 million row dataset, we can divine
-					out house price trends within this tiny postcode area over the past five years,
-					and compare these trends with those of the local <span title="The first letter or two of the postcode: AA" class="tooltip">area</span>,
+				<p><br />
+					With some data analysis of a huge 1.4 million row dataset, we can
+					visualise the distributions of past house sale prices within this tiny postcode area over the past five years,
+					and compare this with those of the local <span title="The first letter or two of the postcode: AA" class="tooltip">area</span>,
 					<span class="tooltip" title="The first letter(s) and number(2): AA12">district</span> and
-					<span class="tooltip" title="Postcode minus letters suffix: AA12 3">sector</span>. Overall
-					price trends for London and the entire dataset (labelled South-East) are also shown:
+					<span class="tooltip" title="Postcode minus letters suffix: AA12 3">sector</span>:
 				</p>
 
-<!--
-<div style="width: 90%; margin: 2% auto;" >
-<canvas id="myChart" width="200" height="100"></canvas>
-<script src="js/plots.js"></script>
-</div>
--->
+				<!--
+				<div style="width: 90%; margin: 2% auto;" >
+				<canvas id="myChart" width="200" height="100"></canvas>
+				<script src="js/plots.js"></script>
+			</div>
+		-->
 
-<div style="width: 95%; margin: 5% auto;">
-<a href="images/pc2_full.png">
-	<img style="max-width:100%; max-height:auto;" src="images/pc2_full.png" />
-	</a>
-</div>
+		<div style="width: 95%; margin: 5% auto;">
+			<a href="images/pc2_full.png">
+				<img style="max-width:100%; max-height:auto;" src="images/pc2_full.png" />
+			</a>
+		</div>
 
-				<p>
-					This gives fractal context of house prices for any given area. Broadly, &#9450; shows
-					that the <strong>SW</strong> area is the 4<sup>th</sup> most expensive area in London, but &#9312;
-					visualises the disparity within this locale. Zooming in to SW18 for &#9313;, we see that SW18 4 is the
-					lowest priced district in SW18, with the narrowest range of sale prices and a noticeable absence of
-					top-end sales. Finally at the local level, &#9314; identifies the full postcode area as around
-					the median for the sector.
-				</p>
+		<p>
+			This gives fractal context of house prices for any given area. Broadly, &#9450; shows
+			that the <strong>SW</strong> area is the 4<sup>th</sup> most expensive area in London, but &#9312;
+			visualises the disparity within this locale. Zooming in to SW18 for &#9313;, we see that SW18 4 is the
+			lowest priced district in SW18, with the narrowest range of sale prices and a noticeable absence of
+			top-end sales. Finally at the local level, &#9314; identifies the full postcode area as around
+			the median for the sector.
+		</p>
 
-<!--
-<h3>Price trends</h3>
+
+		<p>
+			<div style="width: 45%; margin: 1%; float:left;">
+			<a href="images/sw18_full.png">
+			<img style="max-width:100%; max-height:auto;" src="images/sw18_thumb.png" />
+		</a>
+		</div>
+		As well as the spatial data, we have temporal information that can be used to assess
+		house price variation over approximately 5 years covered in the dataset (2009&ndash;14).
+		Continuing with our case study introduced above, we can visualise price trends across
+		area divisions.
+	</p>
+
 <p>
-	As well as the spatial data, we have temporal information that can be used to assess
-	house price variation over approximately 5 years covered in the dataset (2009&ndash;14).
-	Continuing with our case study introduced above, we can visualise price trends across
-	area divisions.
+In this instance we can see the small area SW18 4HU has been tracking below its district (SW18) and
+far below the SW area, but roughly in line with the SW18 4 sector, as hinted at above.
 </p>
 
-<div style="width: 65%; margin: 5% auto;">
-<a href="images/sw18_full.png">
-	<img style="max-width:100%; max-height:auto;" src="images/sw18_thumb.png" />
-	</a>
-</div>
 
 <p>
-	In this instance we can see the small area SW18 4HU has been tracking below its district (SW18) and
-	far below the SW area, but roughly in line with the SW18 4 sector, as hinted at above. We can go further,
-	comparing price time series across regions:
-</p>
--->
-
-<p>
-	These visualisations describe an area's price history, if it fast-growing? Recently gentrified? Or an
-	area in relative stagnation. A particularly interested insight for the real estate speculator is in
-	forecasting models. Here techniques adapted from quantitative finance are applied to house price
-	time series:
+	These visualisations describe an area's price history, if it fast-growing? Recently gentrified or an
+	area in relative stagnation? A particularly interesting insight for the real estate speculator is in
+	forecasting models. Here techniques adapted from quantitative finance are applied to monthly median house price time series:
 </p>
 
 <div style="width: 75%; margin: 5% auto;">
-<img style="max-width:100%; max-height:auto;" src="images/sw184_forecast_thumb.png" />
+	<img style="max-width:100%; max-height:auto;" src="images/sw184_forecast_thumb.png" />
 </div>
 
 <p>
@@ -243,206 +238,219 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 <div style="width: 90%; margin: 5% auto;">
 	<a href="images/grid_forecasts_full.png">
-<img style="max-width:100%; max-height:auto;" src="images/grid_forecasts_thumb.png" />
-</a>
+		<img style="max-width:100%; max-height:auto;" src="images/grid_forecasts_thumb.png" />
+	</a>
 </div>
 
-				<p>
-					The analyses performed in this work can be combined to give an "investment grade"
-					heuristic. This takes into account potential for growth, volatility, upfront cost,
-					and contextual information (is it tracking below nearby sectors or districts?).
-				</p>
+<p>
+	Looks good relative to this random selection, but we can quantify this more accurately by calculating growth forecasts for each sector in the dataset (~2600). </p>
+	<p>
+		Another consideration is variability, not captured in the ARIMA models <code>drift</code> parameter. Here we can borrow from quantitative finance, and calculate the <span style="text-decoration: bold">historical volatility</span> of house prices within a sector.
+	</p>
+	<p>
+		I pre-computed these metrics for all sectors in the dataset, then used their empirical cumulative distribution functions to get a reverse quantile for each sector. That is, given a growth forecast, how does this compare to all the others? Combining growth with volatility (currently equally weighted) can give a simple "investment grade"	heuristic.
+	</p>
 
-		<!--		<p>
-					It has not escaped my notice that such a service could add significant value to
-					existing house sales aggregators such as <a href="http://www.zoopla.co.uk/" target="_blank">Zoopla</a>,
-					<a href="http://www.rightmove.co.uk/" target="_blank">RightMove</a> <emph>et al.</emph>. Indeed,
-					such an add-on that requires data science expertise could be particularly valuable to
-					such established web platforms.
-				</p>  -->
+	<p>
+		Here are the top 5 AAA rated postcode sectors, clearly showing their empirical low volatility and theoretical high growth forecasts:
+	</p>
 
-				</div>
-			</section>
+	<div style="width: 90%; margin: 5% auto;">
+		<a href="images/t5_full.png">
+			<img style="max-width:100%; max-height:auto;" src="images/t5_thumb.png" />
+		</a>
+	</div>
 
-			<!-- Product / business plan -->
-			<section id="product" class="four">
-				<div class="container">
-
-				<!--	<header>
-						<h2>Product</h2>
-					</header> -->
-
-					<div style="margin 5% auto;">
-					<img src="images/logo3_hires.png" />
-					<h2 class="alt">datarea</h2>
-				</div>
-
-					<p>
-						Democratising real estate investment
-					</p>
-
-					<p>
-						<span style="font-family: 'Comfortaa';">datarea</span> is a free, cross-platform app for
-						mobiles, tablets and the web which is capable of performing deep-dive analyses of property
-						areas, exploring temporospatial price histories and modelling future growth potential.
-					</p>
-
-<img src="images/mockup/mockup.png" />
-
-					<h3>Value generation</h3>
-
-					<p>
-						<span style="font-family: 'Comfortaa';">datarea</span> generates significant value for
-						property investors. Even the initial set of analyses &mdash; such as fractal context, price
-						trends and investment grading &mdash; provide insight into property markets which are currently
-						unavailable in any publicly-usable form.</p>
-
-						<p>
-							It's easy to see how these interactive reports provide actionable
-						information: where can you make the best property investment for a given outlay? Is this area
-						experience exponential growth or is it riding the sigmoidal to stagnation? Can you catch an
-						undervalued sector surrounded by high-growth postcodes?
-					</p>
-
-					<p>
-						Following validation of the business through
-						usage of our free mobile and web app, additional
-						data scientists would be brought on board to expand our available analyses, to be offered
-						under a subscription model. At this point we could move beyond publicly available datasets
-						to private sales information, potentially in collaboration with online property sales and letting
-						agents.
-					</p>
-
-					<h3> Customer segments </h3>
-					<br />
-					<div class="row">
-						<div class="4u">
-							<article class="item">
-								<a href="#" class="image fit">
-									<img style="padding: 10%" src="images/ext_logos/segro.png" alt="" />
-									<img style="padding:10%" src="images/ext_logos/reita.png" alt="" />
-								</a>
-								<header>
-									<h3>Real Estate Investment Trusts and advisors</h3>
-								</header>
-							</article>
-							<article class="item">
-								<a href="#" class="image fit">
-									<img style="padding: 2%;" src="images/ext_logos/rightmove.gif" />
-									<img style="padding: 10%;" src="images/ext_logos/zoopla.png" />
-								</a>
-								<header>
-									<h3>Letting and sales sites</h3>
-								</header>
-							</article>
-						</div>
-						<div class="4u">
-							<article class="item">
-								<header>
-									<h3>Personal home buyers</h3>
-								</header>
-							</article>
-							<article class="item">
-								<a href="#" class="image fit">
-									<img style="padding: 10%" src="images/ext_logos/housenetwork.png" alt="" />
-									<img style="padding: 10%" src="images/ext_logos/emoov.png" alt="" />
-								</a>
-								<header>
-									<h3>Online estate agents</h3>
-								</header>
-							</article>
-							<article class="item">
-								<header>
-									<h3>Housing authorities</h3>
-								</header>
-							</article>
-							<article class="item">
-								<a href="#" class="image fit">
-									<img style="padding: 10%" src="images/ext_logos/homebuyers.jpg" alt="" />
-									<!--<img style="padding: 10%" src="https://www.nationalhomebuyers.co.uk/wp-content/themes/nhb/img/logo-heading.png" alt="" /> -->
-								</a>
-								<header>
-									<h3>Home buyer companies</h3>
-								</header>
-							</article>
-						</div>
-						<div class="4u">
-							<article class="item">
-								<a href="#" class="image fit">
-									<img style="padding: 15%" src="images/ext_logos/nla.png" alt="" /></a>
-									<header>
-										<h3>Landlords</h3>
-									</header>
-								</article>
-								<article class="item">
-									<header>
-										<h3>Property insurers</h3>
-									</header>
-								</article>
-
-
-								<article class="item">
-									<a href="#" class="image fit">
-										<img style="padding: 15%" src="images/ext_logos/gov.png" alt="" /></a>
-										<header>
-											<h3>First-time buyer schemes</h3>
-										</header>
-									</article>
-								</div>
-							</div>
-
-							<hr />
-							<br />
-
-							<h3>Future strategy</h3>
-							<p>
-								Having built a proven system of valuable insight, <span style="font-family: 'Comfortaa';">datarea</span> could either: (a)
-								form the basis of a novel data-driven real estate investment consultancy, working with high net-worth individuals and REITs
-								offering quantitative analysis to fuel investment decisions or (b) we might anticipate an acquisition by existing online letting
-								and sales market-leaders, as providers of additional house value insights for the consumer market.
-							</p>
-								<hr />
-							 <br />
-							<div style="width:85%; margin: 0 auto;">
-							<h3>Code and materials</h3>
-							<p style="font-size:1rem;">
-								Statistical analysis performed in the <code>R</code> programming language, with occasional use of the
-								<a href="https://developers.google.com/maps/" target="_blank">Google maps API</a>. Vector graphics editing
-								performed with
-								<a href="http://www.inkscape.org/en/" target="_blank">inkscape</a> and gif to webm compression via
-								<a href="http://www.gfycat.com/" target="_blank">gfycat</a>. One polygon map was writted under a CC-BY-SA license, the
-								KML file is available <a href="https://en.wikipedia.org/w/index.php?title=Template:Attached_KML/SW_postcode_area" target="_blank">here</a>.
-								 <br />
-								Scripts to reproduce all the analyses shown here are on github: <a href="http://github.com/blmoore/summerdatachallenge"><i class="fa fa-github"></i> blmoore</a>
-							</p>
-						</div>
-
-							<h4>Questions?</h4>
-
-				<div class="row">
-				<div class="12u">
-					<a href="mailto:root@blm.io?subject=Tell%20me%20more%20about%20datarea">
-				<input type="submit" value="Email me" />
-			</a>
-			</div>
-		</div>
+	<p>
+		What of our SW18 4HU example? It too gets the highest "AAA" investment grade, and is in the 90<sup>th</sup> percentile for investment score relative to all postcode sectors &mdash; overall it appears to be a ripe area for property investment.
+	</p>
 
 </div>
 </section>
 
-</div>
+<!-- Product / business plan -->
+<section id="product" class="four">
+	<div class="container">
 
-<!-- Footer -->
-<div id="footer">
+		<!--	<header>
+		<h2>Product</h2>
+	</header> -->
 
-	<!-- Copyright -->
-	<ul class="copyright">
-		<li>by Ben Moore (<a href="http://blm.io" target="_blank">blm.io</a>) 2014</li>
-		<li>Licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/legalcode" target="_blank">CC-BY-SA 4.0</a></li>
-		<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-	</ul>
+	<div style="margin 5% auto;">
+		<img src="images/logo3_hires.png" />
+		<h2 class="alt">dat<span style="font-weight: 700;">area</span></h2>
+	</div>
 
-</div>
+	<p>
+		Democratising real estate investment
+	</p>
+
+	<p>
+		<span style="font-family: 'Comfortaa';">dat<span style="font-weight:700;">area</span></span> is a free, cross-platform app for
+		mobiles, tablets and the web which is capable of performing deep-dive analyses of property
+		areas, exploring temporospatial price histories and modelling future growth potential.
+	</p>
+
+	<img src="images/mockup/mockup.png" />
+
+	<h3>Value generation</h3>
+
+	<p>
+		<span style="font-family: 'Comfortaa';">dat<span style="font-weight:700;">area</span></span> generates significant value for
+		property investors. Even the initial set of analyses &mdash; such as fractal context, price
+		trends and investment grading &mdash; provide insight into property markets which are currently
+		unavailable in any publicly-usable form.</p>
+
+		<p>
+			It's easy to see how these interactive reports provide actionable
+			information: where can you make the best property investment for a given outlay? Is this area enjoying exponential growth or is it riding the sigmoid to stagnation? Can you catch an
+			undervalued sector surrounded by high-growth postcodes?
+		</p>
+
+		<p>
+			Following validation of the business through
+			usage of our free mobile and web app, additional
+			data scientists would be brought on board to expand our available analyses, to be offered
+			under a subscription model. At this point we could move beyond publicly available datasets
+			to private sales information, potentially in collaboration with online property sales and letting
+			agents.
+		</p>
+
+		<h3> Customer segments </h3>
+		<br />
+		<div class="row">
+			<div class="4u">
+				<article class="item">
+					<a href="#" class="image fit">
+						<img style="padding: 10%" src="images/ext_logos/segro.png" alt="" />
+						<img style="padding:10%" src="images/ext_logos/reita.png" alt="" />
+					</a>
+					<header>
+						<h3>Real Estate Investment Trusts and advisors</h3>
+					</header>
+				</article>
+				<article class="item">
+					<a href="#" class="image fit">
+						<img style="padding: 2%;" src="images/ext_logos/rightmove.gif" />
+						<img style="padding: 10%;" src="images/ext_logos/zoopla.png" />
+					</a>
+					<header>
+						<h3>Letting and sales sites</h3>
+					</header>
+				</article>
+			</div>
+			<div class="4u">
+				<article class="item">
+					<header>
+						<h3>Personal home buyers</h3>
+					</header>
+				</article>
+				<article class="item">
+					<a href="#" class="image fit">
+						<img style="padding: 10%" src="images/ext_logos/housenetwork.png" alt="" />
+						<img style="padding: 10%" src="images/ext_logos/emoov.png" alt="" />
+					</a>
+					<header>
+						<h3>Online estate agents</h3>
+					</header>
+				</article>
+				<article class="item">
+					<header>
+						<h3>Housing authorities</h3>
+					</header>
+				</article>
+				<article class="item">
+					<a href="#" class="image fit">
+						<img style="padding: 10%" src="images/ext_logos/homebuyers.jpg" alt="" />
+						<!--<img style="padding: 10%" src="https://www.nationalhomebuyers.co.uk/wp-content/themes/nhb/img/logo-heading.png" alt="" /> -->
+					</a>
+					<header>
+						<h3>Home buyer companies</h3>
+					</header>
+				</article>
+			</div>
+			<div class="4u">
+				<article class="item">
+					<a href="#" class="image fit">
+						<img style="padding: 15%" src="images/ext_logos/nla.png" alt="" /></a>
+						<header>
+							<h3>Landlords</h3>
+						</header>
+					</article>
+					<article class="item">
+						<header>
+							<h3>Property insurers</h3>
+						</header>
+					</article>
+
+
+					<article class="item">
+						<a href="#" class="image fit">
+							<img style="padding: 15%" src="images/ext_logos/gov.png" alt="" /></a>
+							<header>
+								<h3>First-time buyer schemes</h3>
+							</header>
+						</article>
+					</div>
+				</div>
+
+				<hr />
+				<br />
+
+				<h3>Future strategy</h3>
+				<p>
+					Having built a proven system of valuable insight, <span style="font-family: 'Comfortaa';">dat<span style="font-weight:700;">area</span></span> could: (a) integrate our analyses with market-leading online sales and letting agents, providing signidicant property sales insights to the consumer market; (b)
+					form the basis of a novel data-driven real estate investment consultancy, working with high net-worth individuals and REITs
+					offering quantitative analysis to fuel investment decisions.
+				</p>
+				<hr />
+				<br />
+				<div style="width:85%; margin: 0 auto;">
+					<h3>Code and materials</h3>
+					<p style="font-size:1rem;">
+						Statistical analysis performed in the <code>R</code> programming language, with occasional use of the
+						<a href="https://developers.google.com/maps/" target="_blank">Google maps API</a>. Vector graphics editing
+						performed with
+						<a href="http://www.inkscape.org/en/" target="_blank">inkscape</a> and gif to webm compression via
+						<a href="http://www.gfycat.com/" target="_blank">gfycat</a>. One polygon map was writted under a CC-BY-SA license, the
+						KML file is available <a href="https://en.wikipedia.org/w/index.php?title=Template:Attached_KML/SW_postcode_area" target="_blank">here</a>.
+						<br />
+						Scripts to reproduce all the analyses shown here are on github: <a href="http://github.com/blmoore/summerdatachallenge"><i class="fa fa-github"></i> blmoore</a>
+					</p>
+				</div>
+
+				<div style="width:75%; margin: 0 auto;">
+					<h5>Disclaimer</h5>
+					<p style="font-size:.9rem;">
+						The contents of this document are intended to provide information to investors, but are not investment advice. Independent investment advice should be sought where appropriate.
+					</p>
+				</div>
+
+				<h4>Questions?</h4>
+
+				<div class="row">
+					<div class="12u">
+						<a href="mailto:root@blm.io?subject=Tell%20me%20more%20about%20datarea">
+							<input type="submit" value="Email me" />
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Footer -->
+	<div id="footer">
+
+		<!-- Copyright -->
+		<ul class="copyright">
+			<li>by Ben Moore (<a href="http://blm.io" target="_blank">blm.io</a>) 2014</li>
+			<li>Licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/legalcode" target="_blank">CC-BY-SA 4.0</a></li>
+			<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+		</ul>
+	</div>
 
 </body>
 </html>
