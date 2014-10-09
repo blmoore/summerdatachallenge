@@ -63,7 +63,9 @@ BCOR5mm, % Binding correction
 %	HEADERS
 %----------------------------------------------------------------------------------------
 
-\renewcommand{\sectionmark}[1]{\markright{\spacedlowsmallcaps{summerdatachallenge}}} % The header for all pages (oneside) or for even pages (twoside)
+%\renewcommand{\sectionmark}[1]{
+\markright{\spacedlowsmallcaps{summerdatachallenge}}
+%} % The header for all pages (oneside) or for even pages (twoside)
 %\renewcommand{\subsectionmark}[1]{\markright{\thesubsection~#1}} % Uncomment when using the twoside option - this modifies the header on odd pages
 \lehead{\mbox{\llap{\small\thepage\kern1em\color{halfgray} \vline}\color{halfgray}\hspace{0.5em}\rightmark\hfil}} % The header style
 
@@ -73,7 +75,7 @@ BCOR5mm, % Binding correction
 %	TABLE OF CONTENTS & LISTS OF FIGURES AND TABLES
 %----------------------------------------------------------------------------------------
 
-\maketitle % Print the title/author/date block
+% \maketitle % Print the title/author/date block
 
 \setcounter{tocdepth}{2} % Set the depth of the table of contents to show sections and subsections only
 
@@ -82,6 +84,17 @@ BCOR5mm, % Binding correction
 % \listoffigures % Print the list of figures
 
 % \listoftables % Print the list of tables
+
+% Make header in inkscape?
+\begin{figure}[width=\textwidth]
+\vspace{-3em}
+\centering
+\includegraphics[width=.7\textwidth]{Figures/header2.pdf}
+\vspace{.5em}
+\end{figure}
+
+%suppres headers
+\thispagestyle{plain}
 
 %----------------------------------------------------------------------------------------
 %	ABSTRACT
@@ -94,8 +107,9 @@ BCOR5mm, % Binding correction
 %\vspace{-1em}
 \centering
 \includegraphics[width=.28\textwidth]{Figures/overview.png}
-%\vspace{-1em}
-\caption{ Mapped house sales, brightness is proportional to price.}
+\vspace{-1em}
+\caption*{ A map of the house prices dataset (brightness is proportional to
+  price and density).}
 \end{wrapfigure}
 
 I analysed the {\bf London house prices} dataset is several innovative
