@@ -8,7 +8,7 @@ library("rgeos")
 library("zoo")
 
 loadHouses <- function(){
-  h <- read.csv("houseprices/london2009-2014-house-prices//Houseprice_2009_100km_London.csv", 
+  h <- read.csv("houseprices/Houseprice_2009_100km_London.csv", 
                 stringsAsFactors=F)
   
   # remove underscores, convert to number
