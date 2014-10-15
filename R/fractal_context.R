@@ -1,6 +1,5 @@
 library("directlabels")
 library("dplyr")
-library("ggplot2")
 library("RColorBrewer")
 library("reshape2")
 library("rgdal")
@@ -14,24 +13,12 @@ options(scipen=99)
 ## Sector (CB21 6):         2640       511
 ## Postocde (CB21 6XA):   305958         3
 
-# EC2Y 9AP - 228 house sales over 5 year period
-
-# SE1 6EG - 124
 top <- sort(table(houses$district), decreasing=T)
 head(top)
 
 # say you're looking at a house in: SW18 4HU 
 sw18 <- subset(houses, district == "SW18")
 sw184 <- subset(houses, sector == "SW18 4")
-
-sw18 <- subset(houses, district == "SW18")
-ggplot(sw18, aes(x=Trdate, y=Price)) +
-  geom_point(alpha=I(.2)) +
-  #scale_y_log10() +
-  geom_smooth(method="loess") +
-  coord_cartesian(ylim=c(quantile(sw18$Price, .05), 
-                         quantile(sw18$Price, .95)))
-
 
 modelArea <- function(data, dates, label){
   if (nrow(data) > 2e4){
@@ -61,15 +48,15 @@ all.res <- modelArea(houses, quarts, "South-East")
 
 qs <- rbind(london.res, sw.res, sw18.res, sw184.res, sw184hu.res, all.res)
 
+# Generate color palette w/ last two: grey shaded
 cols <- rev(brewer.pal(5, "Blues")[-1])
-# last two: grey shaded
 cols <- c(cols, "grey60", "grey80")
 
 qs$area <- factor(qs$area, 
             levels=c("SW18 4HU", "SW18 4", "SW18", "SW", "London", "South-East"))
 
-## static plots for now:
-pdf("plots/sw18.pdf", 5.5, 5.5)
+## Loess models for each area heirarchy (web)
+pdf("plots/PostcodeLevelsLoess.pdf", 5.5, 5.5)
 ggplot(qs, aes(x=time, y=fit/1000, col=area, fill=area)) +
   geom_ribbon(aes(ymin=(fit/1000) - (se.fit/1000),
                   ymax=(fit/1000) + (se.fit/1000)),
@@ -85,13 +72,10 @@ ggplot(qs, aes(x=time, y=fit/1000, col=area, fill=area)) +
            label="SW18 4HU", size=7, col=I("grey50"))
 dev.off()
 
-## compare with other postcodes in SW18 4:
-ggplot(sw184, aes(x=Trdate, y=Price, col=Postcode)) +
-  geom_smooth(method="lm") + geom_point()
-
 pcsummary <- group_by(sw184, Postcode) %>% 
   summarise(sales=n(), med=median(Price))
 
+## Number sales vs. median prices
 ggplot(pcsummary, aes(y=med/1e3, x=sales,
                       size=ifelse(Postcode == "SW18 4HU", 1, 0))) +
   geom_point() + theme_sdc() +
@@ -99,8 +83,8 @@ ggplot(pcsummary, aes(y=med/1e3, x=sales,
   scale_size_continuous(range=c(2, 5)) +
   labs(x="5yr house sales", y="Median sale price (000s £)")
 
-## SW18 4**
-pdf("plots/sw184_priceDist.pdf", 4, 2)
+## SW18 4** density plot, w/ SW18 4HU marked
+pdf("plots/FC3_SectorDistribution.pdf", 4, 2)
 ggplot(pcsummary, aes(x=med/1e3)) +
   geom_density(fill=I(rgb(239, 245, 249, max=255)),
                col=I(rgb(175,205,226, max=255))) + theme_sdc() +
@@ -113,15 +97,15 @@ ggplot(pcsummary, aes(x=med/1e3)) +
   annotate("text", x=750, y=4e-3, label="SW18 4", col=I("grey30"), size=6)
 dev.off()
 
-## SW18
+# for ordering
 sw18.s <- group_by(sw18, sector) %>%
   summarise(med=median(Price))
-
 sw18.s <- sw18.s[order(sw18.s$med),]
+
 # order by median sale
 sw18$sector <- factor(sw18$sector, levels=sw18.s$sector)
 
-pdf("plots/sw18_priceDist.pdf", 5, 3.5)
+pdf("plots/FC2_DistrictDistribution.pdf", 5, 3.5)
 ggplot(sw18, aes(x=sector, y=Price/1e3)) +
   geom_violin(fill=I(rgb(239, 245, 249, max=255)),
               col=I(rgb(175,205,226, max=255))) + 
@@ -131,13 +115,13 @@ ggplot(sw18, aes(x=sector, y=Price/1e3)) +
   annotate("text", x="SW18 4", y=7.5e3, label="SW18", col=I("grey40"), size=6)
 dev.off()
 
-## London 
+# London areas
 london.s <- group_by(ldn, area) %>% 
   summarise(med=median(Price))
 london.s <- london.s[order(london.s$med),]
 ldn$area <- factor(ldn$area, levels=(london.s$area))
 
-pdf("plots/ldn_areas.pdf", 3.5, 5)
+pdf("plots/FC0_LondonAreas.pdf", 3.5, 5)
 ggplot(ldn, aes(x=area, y=Price/1e3)) +
   geom_violin(fill=I(rgb(203, 212, 231, max=255)),
               col=I(rgb(175,205,226, max=255)),
@@ -168,12 +152,14 @@ g2pc <- c("SW1A", "SW1E", "SW1H", "SW1P", "SW1V", "SW1W",
           "SW14", "SW15", "SW16", "SW17", "SW18", "SW19", "SW20")
 
 # munge and plot
+sw <- subset(houses, area == "SW")
 district.s <- group_by(sw, district) %>%
   summarise(m=median(Price))
 district.s <- district.s[match(g2pc, district.s$district),]
 swggmap$fcol <- rep(district.s$m, rle(as.character(swggmap$group))$lengths)
 
-svg("plots/swmap.svg", 4.5, 3)
+# map polygon w/ colours
+svg("plots/FC1_AreaMap.svg", 4.5, 3)
 ggplot(swggmap) + 
   geom_polygon(aes(x=long, y=lat, group=id, fill=fcol/1e3), col="white") +
   #scale_colour_manual(values=c(rep("white", 24), "black", "white", "white")) +

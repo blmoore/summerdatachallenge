@@ -1,3 +1,5 @@
+######### Overview visualisation:: Web gifs #########
+library("ggmap")
 source("R/functions.R")
 
 houses <- loadHouses()
@@ -7,26 +9,13 @@ lat.max <- max(houses$Latitude)
 long.min <- min(houses$Longitude)
 long.max <- max(houses$Longitude)
 
-# base graphics data overview
-map("worldHires", ".", col="gray90", fill=TRUE, 
-    xlim=c(long.min, long.max), ylim=c(lat.min, lat.max))
-points(p$longitude, p$latitude, pch=".")
-
-
-
-library("ggmap")
 map <- get_map(location="London", zoom=8, maptype="toner", color="bw", source="stamen")
 p1 <- ggmap(map, extent="device", darken=.6)
-p1 + geom_point(data=houses[sample(1:nrow(houses), 1e5),], 
-                aes(x=Longitude, y=Latitude, alpha=log10(Price)), col="white") +
-  scale_alpha_continuous(range=c(.01, .2)) +
-  labs(x="", y="") + theme(legend.position="none") 
 
 # filename ordering for (e.g.) imagemagick (yes, 51 not 52)
 getfn <- function(n)
   ifelse(n > 51, paste0("zz", letters[n %% 26]), 
          ifelse(n > 26, paste0("z", letters[n %% 26]), letters[n]))
-
 
 for( ym in 1:65 ){
   # x=1, y=50.5
