@@ -18,12 +18,14 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 	<script src="js/skel-layers.min.js"></script>
 	<script src="js/init.js"></script>
 	<script src="js/Chart.min.js"></script>
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 	<!-- favicon -->
 	<link rel="icon"
 	type="image/png"
 	href="favicon.ico">
 	<!-- google fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Comfortaa:300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 	<noscript>
 		<link rel="stylesheet" href="css/skel.css" />
 		<link rel="stylesheet" href="css/style.css" />
@@ -41,6 +43,23 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 		s.parentNode.insertBefore(g, s);
 	}(document, 'script'));
 	</script>
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+		// create a map in the "map" div, set the view to a given place and zoom
+		var map = L.map('map').setView([51.45678, -0.1953], 13);
+
+		// add an OpenStreetMap tile layer
+		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);
+
+		// add a marker in the given location, attach some popup content to it and open the popup
+		L.marker([51.45678, -0.1953]).addTo(map)
+		.bindPopup('SW18&nbsp;4HU')
+		.openPopup();
+	});
+	</script>
 </head>
 <body>
 
@@ -57,19 +76,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 			<!-- Nav -->
 			<nav id="nav">
-				<!--
-
-				Prologue's nav expects links in one of two formats:
-
-				1. Hash link (scrolls to a different section within the page)
-
-				<li><a href="#foobar" id="foobar-link" class="icon fa-whatever-icon-you-want skel-layers-ignoreHref"><span class="label">Foobar</span></a></li>
-
-				2. Standard link (sends the user to another page/site)
-
-				<li><a href="http://foobar.tld" id="foobar-link" class="icon fa-whatever-icon-you-want"><span class="label">Foobar</span></a></li>
-
-			-->
 			<ul>
 				<!-- <li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-arrow-up">Top</span></a></li> -->
 				<li><a href="#data" id="data-link" class="skel-layers-ignoreHref"><span class="icon fa-database">Data</span></a></li>
@@ -166,84 +172,92 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 					&mdash; just south of the river.
 				</p>
 
-				<div style="width: 40%; margin: 0% 5%; float: right;">
-					<img style="max-width:100%; max-height:auto;" src="images/sw18_4hu.png" atl="Sunny Wandsworth"/>
-				</div>
-
-				<p style="margin: 5%;">
-					For some initial analysis of the huge 1.4 million row dataset, we can
-					visualise the distributions of past house sale prices within this tiny postcode area over the past five years,
-					and compare this with those of the local <span title="The first letter or two of the postcode: AA" class="tooltip">area</span>,
-					<span class="tooltip" title="The first letter(s) and number(2): AA12">district</span> and
-					<span class="tooltip" title="Postcode minus letters suffix: AA12 3">sector</span>:
-				</p>
-
+				<!-- Static backup -->
 				<!--
-				<div style="width: 90%; margin: 2% auto;" >
-				<canvas id="myChart" width="200" height="100"></canvas>
-				<script src="js/plots.js"></script>
-			</div>
-		-->
+				<div style="width: 40%; margin: 0% 5%; float: right;">
+				<img style="max-width:100%; max-height:auto;" src="images/sw18_4hu.png" atl="Sunny Wandsworth"/>
+			</div> -->
 
-		<div style="width: 95%; margin: 5% auto;">
-			<a href="images/pc2_full.png">
-				<img style="max-width:100%; max-height:auto;" src="images/pc2_full.png" />
-			</a>
+			<!-- leaflet.js insert -->
+			<div style="height: 10rem; width: 100%" id="map"></div>
+
+			<p style="margin: 5%;">
+				For some initial analysis, we can
+				visualise the distributions of past house sale prices within this tiny postcode area over the five years covered by the dataset,
+				and compare this with those of the encompassing zones by: <span title="The first letter or two of the postcode: AA" class="tooltip">area</span>,
+				<span class="tooltip" title="The first letter(s) and number(2): AA12">district</span> and
+				<span class="tooltip" title="Postcode minus letters suffix: AA12 3">sector</span>:
+			</p>
+
+			<!--
+			<div style="width: 90%; margin: 2% auto;" >
+			<canvas id="myChart" width="200" height="100"></canvas>
+			<script src="js/plots.js"></script>
 		</div>
+	-->
 
-		<p>
-			This gives fractal context of house prices for any given area. Broadly, &#9450; shows
-			that the <strong>SW</strong> area is the 4<sup>th</sup> most expensive area in London, but &#9312;
-			visualises the disparity within this locale. Zooming in to SW18 for &#9313;, we see that SW18 4 is the
-			lowest priced district in SW18, with the narrowest range of sale prices and a noticeable absence of
-			top-end sales. Finally at the local level, &#9314; identifies the full postcode area as around
-			the median for the sector.
-		</p>
-
-
-		<p>
-			<div style="width: 45%; margin: 1%; float:left;">
-			<a href="images/sw18_full.png">
-			<img style="max-width:100%; max-height:auto;" src="images/sw18_thumb.png" />
+	<div style="width: 95%; margin: 5% auto;">
+		<a href="images/pc2_full.png">
+			<img style="max-width:100%; max-height:auto;" src="images/pc2_full.png" />
 		</a>
+	</div>
+
+	<p>
+		This gives the "fractal context" for house prices of a given postcode:  &#9450; shows
+		that the <strong>SW</strong> area is the 4<sup>th</sup> most expensive area in London, but &#9312;
+		visualises the disparity within this locale. Zooming in to SW18 for &#9313;, we see that SW18 4 is the
+		lowest priced district in SW18, with the narrowest range of sale prices and a noticeable absence of
+		top-end sales. Finally at the local level, &#9314; identifies the full postcode area as around
+		the median for the sector.
+		</p>
+		<p>
+			This combination of plots gives a data-dense description of a property location up and down the postcode heirarchy.
+	</p>
+
+
+	<p>
+		<div style="width: 40%; margin: 1%; float:left;">
+			<a href="images/sw18_full.png">
+				<img style="max-width:100%; max-height:auto;" src="images/sw18_thumb.png" />
+			</a>
 		</div>
 		As well as the spatial data, we have temporal information that can be used to assess
 		house price variation over approximately 5 years covered in the dataset (2009&ndash;14).
 		Continuing with our case study introduced above, we can visualise broad price trends across
-		area divisions.
+		area divisions first by using simple loess models.
 	</p>
 
-<p>
-In this instance we can see the small area SW18 4HU has been tracking below its district (SW18) and
-far below the SW area, but roughly in line with the SW18 4 sector, as hinted at above.
-</p>
+	<p>
+		This visualisation gives an overview of an area's price history: is it recently gentrified or within an
+		area in relative stagnation? In this instance we can see the small area SW18 4HU has been tracking below its district (SW18) and
+		far below the SW area, but roughly in line with the SW18 4 sector, as hinted at above.
+	</p>
 
 
-<p>
-	These visualisations describe an area's price history: is it fast-growing, recently gentrified or an
-	area in relative stagnation? A particularly interesting insight for the real estate speculator is in
-	forecasting models. Here I'm auto-selecting the most appropriate <a href="https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average"
-	target="_blank">autoregressive integrated moving average (ARIMA) model</a>, determined by <a href="https://en.wikipedia.org/wiki/Akaike_information_criterion" target="_blank">Akaike information criterion</a> model selection, and optionally allowing for non-stationary timeseries. Each model is fit independently to a sector's monthly median house price time series:
-</p>
+	<p>
+		 A particularly interesting insight for the real estate speculator is in
+		forecasting future price trends through modelling. Here I'm auto-selecting the most appropriate <a href="https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average"
+		target="_blank">autoregressive integrated moving average (ARIMA) model</a>, determined by <a href="https://en.wikipedia.org/wiki/Akaike_information_criterion" target="_blank">Akaike information criterion</a> model selection, and optionally allowing for non-stationary timeseries. Each model is fit independently to a sector's monthly median house price time series:
+	</p>
 
-<div style="width: 75%; margin: 5% auto;">
-	<img style="max-width:100%; max-height:auto;" src="images/sw184_forecast_thumb.png" />
-</div>
+	<div style="width: 75%; margin: 5% auto;">
+		<img style="max-width:100%; max-height:auto;" src="images/sw184_forecast_thumb.png" />
+	</div>
 
-<p>
-	How do these projections compare to other sectors in the dataset? Here's a comparison
-	with a random selection:
-</p>
+	<p>
+		How do these projections compare to other sectors in the dataset? Here's a comparison
+		with a random selection:
+	</p>
 
-<div style="width: 90%; margin: 5% auto;">
-	<a href="images/grid_forecasts_full.png">
-		<img style="max-width:100%; max-height:auto;" src="images/grid_forecasts_thumb.png" />
-	</a>
-</div>
+	<div style="width: 90%; margin: 5% auto;">
+		<a href="images/grid_forecasts_full.png">
+			<img style="max-width:100%; max-height:auto;" src="images/grid_forecasts_thumb.png" />
+		</a>
+	</div>
 
-<p>
-	The forecast for SW18 4 looks gooks good relative to this random handful, but we can quantify this more accurately by calculating growth forecasts for each sector in the dataset (~2600), and seeing how it ranks relative to all other regions.
-</p>
+	<p>
+		The forecast for SW18 4 looks gooks good relative to this handful of other sectors, but we can go further and quantify this by calculating growth forecasts for each sector in the dataset (~2600), and seeing how it ranks relative to all other regions.
+	</p>
 	<p>
 		Another consideration is variability, not captured in the ARIMA models <code>drift</code> parameter. Here we can borrow from quantitative finance, and calculate the <a href="http://www.tradingmarkets.com/glossary/historical_volatility"
 		target="_blank">historical volatility</a> of house prices within a sector.
@@ -262,9 +276,9 @@ far below the SW area, but roughly in line with the SW18 4 sector, as hinted at 
 		</a>
 	</div>
 
-<p>
-	These five include parts of the South London suburbs of Upper Tooting and Morden, Walthamstow, as well as Brockley, whose <a href="https://en.wikipedia.org/wiki/Brockley_railway_station" target="_blank">train station</a> within SE4 1 became part of the London Overground network in 2010.
-</p>
+	<p>
+		These five include parts of the South London suburbs of Upper Tooting and Morden, Walthamstow, as well as Brockley, whose <a href="https://en.wikipedia.org/wiki/Brockley_railway_station" target="_blank">train station</a> within SE4 1 became part of the London Overground network in 2010.
+	</p>
 
 	<p>
 		What of our SW18 4HU example? It too gets the highest "AAA" investment grade, and is in the 90<sup>th</sup> percentile for investment score relative to all postcode sectors &mdash; overall it appears to be a ripe area for property investment and you should snap up that property you were interested in.
