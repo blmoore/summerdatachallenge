@@ -211,7 +211,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 		the median for the sector.
 		</p>
 		<p>
-			This combination of plots gives a data-dense description of a property location up and down the postcode heirarchy.
+			This combination of plots gives a data-dense description of a property location up and down the postcode hierarchy.
 	</p>
 
 
@@ -223,8 +223,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 		</div>
 		As well as the spatial data, we have temporal information that can be used to assess
 		house price variation over approximately 5 years covered in the dataset (2009&ndash;14).
-		Continuing with our case study introduced above, we can visualise broad price trends across
-		area divisions first by using simple loess models.
+		Continuing with the case study above, we can visualise broad price trends across
+		area divisions first by using <a href="https://en.wikipedia.org/wiki/Local_regression" target="_blank">loess regression</a>.
 	</p>
 
 	<p>
@@ -233,11 +233,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 		far below the SW area, but roughly in line with the SW18 4 sector, as hinted at above.
 	</p>
 
-
 	<p>
-		 A particularly interesting insight for the real estate speculator is in
-		forecasting future price trends through modelling. Here I'm auto-selecting the most appropriate <a href="https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average"
-		target="_blank">autoregressive integrated moving average (ARIMA) model</a>, determined by <a href="https://en.wikipedia.org/wiki/Akaike_information_criterion" target="_blank">Akaike information criterion</a> model selection, and optionally allowing for non-stationary timeseries. Each model is fit independently to a sector's monthly median house price time series:
+		 Of particular interest to the real estate speculator is forecasting future price trends. Here I'm auto-selecting the most appropriate <a href="https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average"
+		target="_blank">autoregressive integrated moving average (ARIMA) model</a>, determined by <a href="https://en.wikipedia.org/wiki/Akaike_information_criterion" target="_blank">Akaike information criterion</a> model selection, and optionally allowing for non-stationary timeseries. Each model is fit independently to a sector's monthly median house price time series &mdash; for example, here's the model and forecast for our example SW18 4 sector:
 	</p>
 
 	<div style="width: 75%; margin: 5% auto;">
@@ -245,8 +243,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 	</div>
 
 	<p>
-		How do these projections compare to other sectors in the dataset? Here's a comparison
-		with a random selection:
+		How do these projections compare to other sectors in the dataset? Here's a quick comparison with a random selection:
 	</p>
 
 	<div style="width: 90%; margin: 5% auto;">
