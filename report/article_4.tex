@@ -124,7 +124,7 @@ startup aimed at \emph{democratising real estate investment}, offering
 individuals and businesses quantitative property area insights for
 data-driven investment decisions.
 
-A full report with additional visualisations is online at {\bf
+A full report with additional interactive visualisations is online at {\bf
   \leavevmode\href{http://blm.io/datarea}{blm.io/datarea} }and scripts to
 reproduce all analyses are available from {\bf
   \leavevmode\href{http://github.com/blmoore/summerdatachallenge}{github.com/blmoore/summerdatachallenge}}.
@@ -154,6 +154,7 @@ give an opinion based on their own limited sample size, but with a
 large dataset we can address these questions quantitatively and
 visualise the results.
 
+\vspace{-.5em}
 \subsection*{Fractal context}
 
 Letting and sales sites may currently list some recent sales, but it's
@@ -182,6 +183,7 @@ gleaned just by browsing recent sales. The example view (Figure 1)
 combines ranked violin density plots and a geo-heatmap for a clear,
 intuitive view of a locations price context.
 
+\vspace{-.5em}
 \subsection*{ARIMA modelling}
 
 Given a time series of housing prices, it's of interest to investors
@@ -201,7 +203,7 @@ maximal growth projections. \\
 \end{center}
 \end{figure}
 
-\vspace{-1em}
+\vspace{-2em}
 \subsection*{Investment grading}
 
 Combining growth forecasts and other derived metrics from this
@@ -209,12 +211,10 @@ dataset allow an approximate investment grading, relative to other
 postcodes within the area covered by this dataset. This intuitive
 output metric can help prioritise areas ripe for property investment.
 
-As an example, Figure 3 shows the top 5 best-ranked postcode sectors
+As an example, Figure 3 shows the top 5 postcode sectors
 in which to invest, according to their 12-month price growth forecast
 and historical annualised volatility --- thus combining the empirical
-data with theoretical model outputs. These include South London
-suburbs of Upper Tooting and Morden, as well as Walthamstow in East
-London, and Brockley,
+data with theoretical model outputs. These include Brockley,
 whose train station within SE4 1 was linked with the London Overground network in 2010.\\
 
 \begin{figure}[h]
@@ -224,22 +224,29 @@ whose train station within SE4 1 was linked with the London Overground network i
 \end{center}
 \end{figure}
 
-The rankings used in Figure 3 made use of the $drift$ parameter of
-ARIMA models, combined with statistical volatility over the five year
-house prices dataset. Both parameters were converted to quantiles and
+\setlength{\intextsep}{0em}
+\begin{wrapfigure}{R}{.45\textwidth}
+%\vspace{-1em}
+\centering
+\includegraphics[width=.44\textwidth]{Figures/grading.png}
+\vspace{-1em}
+\caption{ Quantile transformation for investment grading
+  (AAA rated sectors in \emph{navy}).}
+\vspace{.5em}
+\end{wrapfigure}
+
+Growth forecasts and volatility were converted to quantiles and
 weighted equally; those sectors with the highest projected growth
-and least historical volatility receive the highest investment grade
+and least historical volatility receive the best investment grade
 (on a scale of AAA, AA, A, BBB \ldots C).\textsuperscript{$\star$}
 
-Returning to our original example, we can conclude that SW18 4HU is a
-promising choice of area for property investment. It's approximately
-median-priced for the sector, which is the cheapest of SW18 (in turn
-part of the desirable SW London area; Figure 1). It has good growth
-projections of XX in the next 12 months (Figure 2), and when combined
-with volatility and compared with all $\approx2600$ sectors in the
-dataset, receives the top AAA investment grade, placing it in the
-90\textsuperscript{th} percentile for predicted price growth and low
-historical volatility.
+Returning to our original example, SW18 4HU is a promising choice of
+area for property investment. It's median-priced for the sector, which
+is the cheapest of SW18 (in turn part of the desirable SW London area;
+Figure 1). It has good growth projections of over £28,000 in the next
+year (Figure 2), and receives the top AAA investment grade, being
+in the 90\textsuperscript{th} percentile for predicted price growth
+and low historical volatility in the dataset.
 
 {\let\thefootnote\relax\footnotetext{\textsuperscript{$\star$}
     Data intended to assist investors and does not constitute

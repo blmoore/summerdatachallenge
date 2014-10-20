@@ -804,3 +804,12 @@ span.tooltip {
 	  border-bottom: 1px dotted #222;
     text-decoration: none;
 }
+
+
+.rChart {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 450px;
+  height: 450px;
+}

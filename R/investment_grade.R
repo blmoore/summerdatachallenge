@@ -52,12 +52,6 @@ df$growth <- pvec(as.vector(df$sector), growth, mc.cores=8)
 ## convert raw growth vals to quantiles
 df$growth.q <- ecdf(df$growth)(df$growth)
 
-hist(df$growth.q)
-
-tc <- houses[houses$sector == "NW9 6",]
-plot(tc$Trdate, tc$Price)
-plot(tc$Trdate, fitted(auto.arima(ts(tc$Price, as.numeric(tc$Trdate)))))
-
 volatility <- function(sector){
   data <- houses[houses$sector == sector,]
   data <- group_by(data, Month) %>% summarise(median=median(Price))
@@ -99,19 +93,8 @@ svg("plots/top5_investments.svg", 8, 7)
 do.call(grid.arrange, l)
 dev.off()
 
-head(top.grades)
-hist(rs <- rowSums(df[,c("growth.q", "vol.q")]))
-which.max(rs)
-df[1168,]
-
-plot(density(df$growth))
-lines(density(top.grades$growth))
-
-hist(df$vol, 50, freq=F, ylim=c(0,1.5), col=rgb(.5,.5,.8,.2))
-hist(top.grades$vol, add=T, freq=F, col=rgb(.8,.5,.5,.2))
 
 df <- df[,c(1,2,4,3,5,8,6:7)]
-saveRDS(df, "rds/invest_grade.rds")
+saveRDS(df, "rds/invest_grade2.rds")
 
 
-head(df[df$sector=="SW18 4",])
