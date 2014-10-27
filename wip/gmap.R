@@ -34,7 +34,8 @@ k <- group_by(houses, district) %>%
   filter(district %in% kml[,1]) %>%
   summarise(median=median(Price), number=n(),
             newbuilds=length(Newbuild[Newbuild == "Y"]),
-            min=min(Price), max=max(Price))
+            min=min(Price), max=max(Price),
+            mean=round(mean(Price), -3))
 
 # match order (AL10 195000)
 k <- k[match( as.character(kml[,1]), k$district ),]
