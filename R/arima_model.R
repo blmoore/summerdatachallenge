@@ -1,4 +1,10 @@
-## ARIMA forecasting
+### Time series modelling and forecasting ###
+# Performs some data munging and diagnostic #
+# tests to help decide the best modelling   #
+# approach. Then fits a regularised ARIMA   #
+# model to the example sector ("SW18 4"),   #
+# plotting the forecast (report: fig. 2).   #
+#############################################
 library("dplyr")
 library("forecast")
 library("ggplot2")
@@ -69,10 +75,8 @@ afit <- data.frame(Month=sdf$Month, median=as.vector(fitted(aa)))
 
 pdf$type <- factor(pdf$type, levels=c("measured", "forecast"))
 
-## hacky ggplot abuse
 pdf("plots/forecast_v2.pdf", 5, 3)
 ggplot(pdf, aes(x=Month, y=median/1e3)) +
-  #scale_color_manual() +
   # forecase bounds
   geom_ribbon(data=vars, inherit.aes=F,
               aes(x=Month, ymin=l95/1e3, ymax=h95/1e3),
@@ -91,7 +95,6 @@ ggplot(pdf, aes(x=Month, y=median/1e3)) +
   annotate("text", x=as.Date("2010-01-01"), size=8,
            y=550, label="SW18 4", col=I("grey40"))
 dev.off()
-
 
 plotForecast <- function(out){
   pdf <- out$pdf
@@ -122,14 +125,12 @@ plotForecast <- function(out){
 }
 
 modelHPs <- function(sector){
-  #sector="W6 7"
   data <- houses[houses$sector == sector,]
   # aggregate by monht
   data <- group_by(data, Month) %>% summarise(median=median(Price))
   data.ts <- ts(data$median, as.numeric(as.yearmon(data$Month)))
   arima <- auto.arima(data.ts)
   # inspect fit
-  # summary(arima)
   f <- forecast(arima, h=12)
   fore <- as.data.frame(f)
   
@@ -157,7 +158,6 @@ modelHPs <- function(sector){
 # random selection of sectors:
 set.seed(42)
 sectors <- c("SW18 4", sample(houses$sector, 15))
-
 l <- lapply(sectors, modelHPs)
 
 svg("plots/grid_forecasts_v2.svg", 16, 10)

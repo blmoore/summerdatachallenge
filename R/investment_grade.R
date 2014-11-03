@@ -25,12 +25,7 @@ growth <- function(sector){
   data <- group_by(data, Month) %>% summarise(median=median(Price))
   data.ts <- ts(data$median, as.numeric(as.yearmon(data$Month)))
   arima <- auto.arima(data.ts, allowdrift=T)
-#  f <- as.data.frame(forecast(arima, h=12))
-  #s.e <- fore$`Point Forecast`[c(1, 12)]
-  
-  # percentage change over forecast
-  #100*((s.e[2] - s.e[1]) / s.e[1])
- # message(coef(arima))
+
   if("drift" %in% names(coef(arima))){
     return(coef(arima)[["drift"]])
   } else {
@@ -95,6 +90,6 @@ dev.off()
 
 
 df <- df[,c(1,2,4,3,5,8,6:7)]
-saveRDS(df, "rds/invest_grade2.rds")
+saveRDS(df, "rds/invest_grade.rds")
 
 

@@ -62,7 +62,6 @@ theme_sdc_null <- function(base_size=12, base_family="sans") {
     axis.line.y = element_line(),
     legend.background = element_rect(colour = "grey95", fill="grey95"),
     legend.margin = grid::unit(0.2, "cm"),
-    # legend.key = element_rect(),
     legend.key = element_blank(),
     legend.key.size = grid::unit(1.2, "lines"),
     legend.key.height = NULL,
@@ -76,9 +75,7 @@ theme_sdc_null <- function(base_size=12, base_family="sans") {
     legend.justification = "center",
     legend.box = NULL,
     ## Must have colour=NA or covers the plot
-    # panel.background = element_rect(),
     panel.background = element_rect(fill = "transparent", colour = NA),
-    # panel.border = element_rect(fill=NA),
     panel.border = element_blank(), 
     panel.margin = grid::unit(0.25, "lines"),
     panel.grid = element_line(),
@@ -86,9 +83,6 @@ theme_sdc_null <- function(base_size=12, base_family="sans") {
     panel.grid.major.x = element_line(),
     panel.grid.major.y = element_line(),
     # removed:
-    #panel.grid.minor = element_line(),
-    #panel.grid.minor.x = element_line(size=.1),
-    #panel.grid.minor.y = element_line(size=.1),
     panel.grid.minor = element_blank(),
     panel.grid.minor.x = element_blank(),
     panel.grid.minor.y = element_blank(),
@@ -117,24 +111,6 @@ theme_sdc_sizes <- function() {
   )
 }
 
-#' sdc custom ggplot2 theme
-#'
-#' Custom ggplot2 theme for #summerdatachallenge.
-#' Reasonably minimalist but retains grid lines which might
-#' be better off stripped depending on data.
-#' 
-#' @export
-#' @examples
-#' library("ggplot2")
-#' library("grid")
-#' 
-#' # default theme
-#' ggplot(data.frame(x=1:100, y=rnorm(100)), aes(x, y)) + 
-#'   geom_point()
-#'  
-#' #sdc
-#' ggplot(data.frame(x=1:100, y=rnorm(100)), aes(x, y)) + 
-#'   geom_point() + theme_sdc()
 theme_sdc <- function(base_size=12, base_family="", use_sizes=TRUE) {
   thm <- theme_sdc_null(base_size=base_size, base_family=base_family)
   if (use_sizes) {
@@ -142,8 +118,6 @@ theme_sdc <- function(base_size=12, base_family="", use_sizes=TRUE) {
   }
   thm
 }
-
-## End ggplot2 theme
 
 ## blank theme, from: https://gist.github.com/dsparks/3711166#file-new_theme_empty-r
 new_theme_empty <- theme_bw()

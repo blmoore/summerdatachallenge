@@ -1,3 +1,19 @@
+# ##########################################################
+# ------------------- Fractal context -------------------- #
+#                                                          #
+# Draws individual plots which together give a "fractal    #
+# context" of a given postcode area. This involves showing #
+# price distributions throughout the postcode hierarchy:   #
+#                                                          #
+#    FC0 :: violin plots of London areas                   #
+#    FC1 :: a colour-coded map of SW London                #
+#    FC2 :: violin densitites with overlaid individual     #
+#           house sales for each sector                    #
+#    FC3 :: a kernel-density estimate of the distribution  #
+#           of house sale prices within SW18 4             #
+#                                                          #
+# These vector graphs were then arranged using Inkscape.   #
+############################################################
 library("directlabels")
 library("dplyr")
 library("RColorBrewer")
