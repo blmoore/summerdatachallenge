@@ -7,4 +7,4 @@ This repo containts my entry for Imperial create lab's [summerdatachallenge](htt
 
 ## How to run
 
-The competition data is **not** included in this repository due to its terms of use. Therefore to run these scripts, place the file `Houseprice_2009_100km_London.csv` (137 MB) in directory `houseprices/`. Then each Rscript can be run as standalone using: `Rscript <scriptname>`
+The competition data is **not** included in this repository due to its terms of use. Therefore to run these scripts, place the file `Houseprice_2009_100km_London.csv` (137 MB) in directory `houseprices/` — then each Rscript can be run as standalone using: `Rscript <scriptname>`
