@@ -160,7 +160,7 @@ set.seed(42)
 sectors <- c("SW18 4", sample(houses$sector, 15))
 l <- lapply(sectors, modelHPs)
 
-svg("plots/grid_forecasts_v2.svg", 16, 10)
+svg("plots/grid_forecasts.svg", 16, 10)
 do.call(grid.arrange, l)
 dev.off()
 
