@@ -13,7 +13,9 @@ The competition data is **not** included in this repository due to its terms of 
 
 Each of the main scripts are briefly described here:
 
-* `Rscript R/fractal_context.R` — generates a series of visualisations that relates a specific area to its neighbouring sector, district and area in terms of, is it the most or least expensive in a given locale? An outlier? Unexpectedly underpriced?
+* `Rscript R/fractal_context.R` — generates a series of visualisations (namely `plots/FC*`) that relate a specific area to its neighbouring sector, district and area in terms of, is it the most or least expensive in a given locale? An outlier? Unexpectedly underpriced? Figures FC0-4 were combined for the final report using inkscape.
+* `Rscript R/arima_model.R` — after some background work, fits AR|I|MA models to house price time series and plots the forecast of a given sector ([`plots/forecast.pdf`](plots/forecast.pdf)) as well as a random selection for comparison ([`plots/grid_forecasts.svg](plots/grid_forecasts.svg)).
+* 
 
 ## sessionInfo()
 
