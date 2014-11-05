@@ -19,7 +19,7 @@ The main scripts are briefly described here, more information is available in so
 
 Other more minor scripts include:
 * `postcode_map.R` — draws a series of monthly png bitmap images then stitches them together into animated gifs (via ImageMagick commandline) to show the entire dataset of house sales over time.
-* `interactive.R` — builds the basic javascript plots of investment grading used online (javascript was subsequently manually tweaked).
+* `interactive.R` — builds the basic javascript plots using rCharts (and dimple.js) of investment grading used online.
 * `report_viz.R`— just draws the introductory overview map ([`plots/report_overview.pdf`](plots/report_overview.pdf))for the written report.
 * `gmap.R` — outputs a csv ([`gmap/fusion_kml.csv`](gmap/fusion_kml.csv)) for use with fusion tables and the Google Maps API in order to build the interactive map overlay shown in the online report.
 
