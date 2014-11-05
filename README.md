@@ -9,7 +9,7 @@ A short written report can be found under [`report/sdc_report.pdf`](report/sdc_r
 
 ## How to run
 
-The competition data is **not** included in this repository due to its terms of use, so to run these analyses, place the file `Houseprice_2009_100km_London.csv` (137 MB) in directory `houseprices/`. Scripts are all in the `R` directory, so can then be run with e.g. `Rscript R/fractal_context.R`, but are best played with interactively through an R IDE such as [RStudio](http://www.rstudio.com/).
+The competition data is **not** included in this repository due to its terms of use, so to run these analyses you must first place the file `Houseprice_2009_100km_London.csv` (137 MB) in directory `houseprices/`. Scripts are all in the `R` directory, so can then be run with e.g. `Rscript R/fractal_context.R`, but are best played with interactively through an R IDE such as [RStudio](http://www.rstudio.com/).
 
 The main scripts are briefly described here, more information is available in source code comments:
 
