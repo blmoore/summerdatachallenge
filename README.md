@@ -11,11 +11,19 @@ A short written report can be found under [`report/sdc_report.pdf`](report/sdc_r
 
 The competition data is **not** included in this repository due to its terms of use. Therefore to run these scripts, place the file `Houseprice_2009_100km_London.csv` (137 MB) in directory `houseprices/` — then each Rscript can be run as standalone using: `Rscript <scriptname>`
 
-Each of the main scripts are briefly described here:
+The main scripts are briefly described here, more information is available in source code comments:
 
-* `Rscript R/fractal_context.R` — generates a series of visualisations (namely `plots/FC*`) that relate a specific area to its neighbouring sector, district and area in terms of, is it the most or least expensive in a given locale? An outlier? Unexpectedly underpriced? Figures FC0-4 were combined for the final report using inkscape.
+* `Rscript R/fractal_context.R`
+* — generates a series of visualisations (namely `plots/FC*`) that relate a specific area to its neighbouring sector, district and area in terms of, is it the most or least expensive in a given locale? An outlier? Unexpectedly underpriced? Figures FC0-4 were combined for the final report using inkscape.
 * `Rscript R/arima_model.R` — after some background work, fits AR|I|MA models to house price time series and plots the forecast of a given sector ([`plots/forecast.pdf`](plots/forecast.pdf)) as well as a random selection for comparison ([`plots/grid_forecasts.svg`](plots/grid_forecasts.svg)).
 * `Rscript R/investment_grade.R` — fits ARIMA models to all sectors in dataset (2500+?) and calculates historical volatility to be combined into an investment grade. Saves the top 5 sectors ([`plots/top5_investments.svg`](plots/top5_investments.svg)) and a summary dataframe R object ([`rds/invest_grade.rds`](rds/invest_grade.rds)).
+
+Other scripts include:
+* `Rscript R/interactive.R` — builds the basic javascript plots of investment grading used online (javascript was subsequently manually tweaked).
+* `Rscript R/gmap.R`— just draws the introductory overview map ([`plots/report_overview.pdf`](plots/report_overview.pdf))for the written report.
+* `Rscript R/gmap.R` — outputs a csv ([`gmap/fusion_kml.csv`](gmap/fusion_kml.csv)) for use with fusion tables and the Google Maps API in order to build the interactive map overlay shown in the online report.
+* 
+
 
 ## sessionInfo()
 
