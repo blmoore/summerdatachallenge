@@ -9,9 +9,9 @@ A short written report can be found under [`report/sdc_report.pdf`](report/sdc_r
 
 ## How to run
 
-The competition data is **not** included in this repository due to its terms of use. Therefore to run these scripts, place the file `Houseprice_2009_100km_London.csv` (137 MB) in directory `houseprices/` — then each Rscript can be run as standalone using: `Rscript <scriptname>`
+The competition data is **not** included in this repository due to its terms of use, so to run these analyses, place the file `Houseprice_2009_100km_London.csv` (137 MB) in directory `houseprices/`. Scripts are all in the `R` directory, so can then be run with e.g. `Rscript R/fractal_context.R`, but are best played with interactively through an R IDE such as [RStudio](http://www.rstudio.com/).
 
-The main scripts are briefly described here, more information is available in source code comments. These scripts are all in the `R` directory, so could be run from with, e.g. `Rscript R/fractal_context.R` (but are best run interactively with an R IDE such as RStudio.
+The main scripts are briefly described here, more information is available in source code comments:
 
 * `fractal_context.R` generates a series of visualisations (namely `plots/FC*`) that relate a specific area to its neighbouring sector, district and area in terms of, is it the most or least expensive in a given locale? An outlier? Unexpectedly underpriced? Figures FC0-4 were combined for the final report using inkscape.
 * `arima_model.R` — after some background work, fits AR|I|MA models to house price time series and plots the forecast of a given sector ([`plots/forecast.pdf`](plots/forecast.pdf)) as well as a random selection for comparison ([`plots/grid_forecasts.svg`](plots/grid_forecasts.svg)).
