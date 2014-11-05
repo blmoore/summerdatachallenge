@@ -11,6 +11,10 @@ A short written report can be found under [`report/sdc_report.pdf`](report/sdc_r
 
 The competition data is **not** included in this repository due to its terms of use. Therefore to run these scripts, place the file `Houseprice_2009_100km_London.csv` (137 MB) in directory `houseprices/` — then each Rscript can be run as standalone using: `Rscript <scriptname>`
 
+Each of the main scripts are briefly described here:
+
+* `Rscript R/fractal_context.R` — generates a series of visualisations that relates a specific area to its neighbouring sector, district and area in terms of, is it the most or least expensive in a given locale? An outlier? Unexpectedly underpriced?
+
 ## sessionInfo()
 
 Below is the output of `sessionInfo()` which shows loaded package versions, the OS and R version (3.1.1) under which these scripts were written.
