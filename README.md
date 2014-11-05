@@ -22,12 +22,11 @@ Other more minor scripts include:
 * `interactive.R` — builds the basic javascript plots of investment grading used online (javascript was subsequently manually tweaked).
 * `report_viz.R`— just draws the introductory overview map ([`plots/report_overview.pdf`](plots/report_overview.pdf))for the written report.
 * `gmap.R` — outputs a csv ([`gmap/fusion_kml.csv`](gmap/fusion_kml.csv)) for use with fusion tables and the Google Maps API in order to build the interactive map overlay shown in the online report.
-* 
 
 
 ## sessionInfo()
 
-Below is the output of `sessionInfo()` which shows loaded package versions, the OS and R version (3.1.1) under which these scripts were written.
+Below is the output of `sessionInfo()` which shows loaded package versions, the OS and R version (3.1.1) under which these scripts were written. For CRAN snapshots, these analyses were performed around mid October 2014.
 
 ```
 R version 3.1.1 (2014-07-10)
