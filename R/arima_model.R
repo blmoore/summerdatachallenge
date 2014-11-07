@@ -75,7 +75,7 @@ afit <- data.frame(Month=sdf$Month, median=as.vector(fitted(aa)))
 
 pdf$type <- factor(pdf$type, levels=c("measured", "forecast"))
 
-pdf("plots/forecast_v2.pdf", 5, 3)
+pdf("plots/forecast.pdf", 5, 3)
 ggplot(pdf, aes(x=Month, y=median/1e3)) +
   # forecase bounds
   geom_ribbon(data=vars, inherit.aes=F,

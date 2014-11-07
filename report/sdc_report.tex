@@ -85,7 +85,6 @@ BCOR5mm, % Binding correction
 
 % \listoftables % Print the list of tables
 
-% Make header in inkscape?
 \begin{figure}[width=\textwidth]
 \vspace{-3em}
 \centering
@@ -112,29 +111,31 @@ BCOR5mm, % Binding correction
   price and density).}
 \end{wrapfigure}
 
-I analysed the {\bf London house prices} dataset in several innovative
-ways. Firstly \emph{fractal context} shows how house sales within an
-arbitrary area relate to those if neighbouring districs, up and down
-the postcode hierarchy. Secondly, I fit \emph{ARIMA models} to
-forecast an area's price trend into the future, with an eye to
-suggesting profitable investments. Finally, these and other metrics
+I analysed the {\bf London house prices} dataset in several creative
+ways. Firstly, the \emph{fractal context} of an area visualises how house
+prices relate to those of neighbouring areas at different scales up
+and down the postcode hierarchy. Secondly, I fit \emph{ARIMA models}
+to forecast an area's price trend into the future, with an eye to
+suggesting profitable investments. Finally, growth and other metrics
 were combined into an \emph{investment grade} for a given postcode
 area. Together this set of analyses forms the basis of \logo, a
 startup aimed at \emph{democratising real estate investment}, offering
-individuals and businesses quantitative property area insights to enable
-data-driven investment decisions.
+individuals and businesses quantitative property area insights to
+enable data-driven investment decisions.
 
-A full report with additional interactive visualisations is online at {\bf
-  \leavevmode\href{http://blm.io/datarea}{blm.io/datarea} }and scripts to
-reproduce all analyses are available from {\bf
-  \leavevmode\href{http://github.com/blmoore/summerdatachallenge}{github.com/blmoore/summerdatachallenge}}.
+An enhanced report with interactive visualisations is online at 
+{\bf \leavevmode\href{http://blm.io/datarea}{blm.io/datarea} } 
+and scripts to reproduce all analyses are available from 
+{\bf
+  \leavevmode\href{http://github.com/blmoore/summerdatachallenge}{github.com/blmoore/summerdatachallenge}
+}.
 
 %----------------------------------------------------------------------------------------
 %	AUTHOR AFFILIATIONS
 %----------------------------------------------------------------------------------------
 
-{\let\thefootnote\relax\footnotetext{\textsuperscript{1} \textit{MRC
-      Human Genetics Unit, University of Edinburgh, Scotland, United Kingdom}}}
+%{\let\thefootnote\relax\footnotetext{\textsuperscript{1} \textit{MRC
+ %     Human Genetics Unit, University of Edinburgh, Scotland, United Kingdom}}}
 
 %----------------------------------------------------------------------------------------
 
@@ -147,24 +148,24 @@ reproduce all analyses are available from {\bf
 \vspace{-1em}
 \section*{Section A: Analyses}
 
-When considering a property in a given area, you may ask a realtor
-questions like: how do prices here compare to surrounding postcodes, and
-how have they changed over time? A real estate professional can
-give an opinion based on their own limited sample size, but with a
-large dataset we can address these questions quantitatively and
-visualise the results.
+When considering a property in a given area, you may want to ask
+questions like: how do prices here compare to the surrounding areas?
+How have they changed over time? Where will they be in a year's time?
+A real estate professional can give an opinion based on their own
+limited sample size, but with a large dataset we can address these
+questions through statistical analysis and visualise the results.
 
 \vspace{-.5em}
 \subsection*{Fractal context}
 
-Letting and sales sites may currently list some recent sales, but it's
-not currently possible to see a quantitative overview of property
-prices in a region, within the context of its sector, district and
-postcode.
+Letting and sales sites sometimes list some recent sales in a given
+area, but it's not currently possible to get a quantitative overview
+of property prices in a region, within the context of its sector,
+district and postcode.
 
 %\setlength{\intextsep}{0em}
 \begin{wrapfigure}[16]{l}{.45\textwidth}
-\vspace{.5em}
+%\vspace{.5em}
 \centering
 \includegraphics[width=.43\textwidth]{Figures/fractal.png}
 \caption{ Fractal context of postcode SW18 4HU in Wandsworth, South London.}
@@ -174,27 +175,28 @@ postcode.
 %\noindent 
 
 These questions can be answered with a clear and intuitive data
-visualisation of price distributions in the postcode hierarchy --- we
-call this the fractal context of a property price (Figure 1).
+visualisation of price distributions in the postcode hierarchy --- what
+I've called the fractal context of a property price (Figure 1).
 
-A specific postcode or area can be marked within its distribution,
-giving a clear view of a properties relative pricing which cannot be
-gleaned just by browsing recent sales. The example view (Figure 1)
-combines ranked violin density plots and a geo-heatmap for a clear,
-intuitive view of a locations price context.
+Any chosen area can be seen in the context of its surroundings, from
+full postcodes to much wider areas, clearly showing how the pricing of
+any given property relates to those nearby.  The example graphic for
+postcode SW18 4HU (Figure 1) combines ranked violin density plots and
+a geo-heatmap for a clear, intuitive view of a location's price
+context.
 
 \vspace{-.5em}
 \subsection*{ARIMA modelling}
 
-Given a time series of housing prices, it's of interest to investors
-to speculate on potential investment returns for a given property
-area. This can be done through time series analysis using the
-autoregressive integrated moving average (ARIMA) model (Figure 2). The
-model fitting procedure included regularisation that allowed a $drift$
-term to model non-stationary trends, as well as coefficients capturing
-periodicity or seasonal effects. Potential investment returns could be
-optimised by selecting areas with
-maximal growth projections. \\
+Property investors need a method of evaluating the potential investment
+returns of a given property area. This can be achieved through time
+series modelling with autoregressive integrated moving average (ARIMA)
+models (Figure 2). For this application regularised models were fit
+which allowed a $drift$ term to capture non-stationary trends
+(i.e. allowing for gain, loss or neither) as well as coefficients
+reflecting periodicity or seasonal effects. Hence potential investment
+returns could then be optimised by selecting areas with
+maximal growth projections. 
 
 \begin{figure}[h]
 \begin{center}
@@ -206,15 +208,16 @@ maximal growth projections. \\
 \vspace{-2em}
 \subsection*{Investment grading}
 
-Combining growth forecasts and other derived metrics from this
-dataset allow an approximate investment grading, relative to other
-postcodes within the area covered by this dataset. This intuitive
-output metric can help prioritise areas ripe for property investment.
+Combining growth forecasts and with an additional measure of
+variability allows an approximate investment grading of each sector,
+relative to other postcodes within the area covered by this
+dataset. This intuitive output metric can help prioritise areas ripe
+for property investment and combines the theoretical model projections
+with an empirical metric of past stability.
 
-As an example, Figure 3 shows the top 5 postcode sectors
-in which to invest, according to their 12-month price growth forecast
-and historical annualised volatility --- thus combining the empirical
-data with theoretical model outputs. These include Brockley,
+As an example, Figure 3 shows the top 5 postcode sectors in which to
+invest, according to their 12-month price growth forecast and
+historical annualised volatility. These include Brockley,
 whose train station within SE4 1 was linked with the London Overground network in 2010.\\
 
 \begin{figure}[h]
@@ -236,21 +239,23 @@ whose train station within SE4 1 was linked with the London Overground network i
 \end{wrapfigure}
 
 Growth forecasts and volatility were converted to quantiles and
-weighted equally; those sectors with the highest projected growth
+equally weighted (Figure 4); those sectors with the highest projected growth
 and least historical volatility receive the best investment grade
-(on a scale of AAA, AA, A, BBB \ldots C).\textsuperscript{$\star$}
+(on a scale of AAA, AA, A, BBB \ldots C).
 
 Returning to our original example, SW18 4HU is a promising choice of
-area for property investment. It's median-priced for the sector, which
-is the cheapest of SW18 (in turn part of the desirable SW London area;
-Figure 1). It has good growth projections of over £28,000 in the next
-year (Figure 2), and receives the top AAA investment grade, being
-in the 90\textsuperscript{th} percentile for predicted price growth
-and low historical volatility in the dataset.
+area for property investment.\textsuperscript{$\star$} It's
+median-priced for the sector, which is the cheapest of SW18 (in turn
+part of the desirable SW London area; Figure 1). It has good growth
+projections of over £28,000 in the next year (Figure 2), and receives
+the top AAA investment grade for being in the 90\textsuperscript{th}
+percentile for predicted price growth and low historical volatility
+compared to all other sectors covered by the dataset.
 
 {\let\thefootnote\relax\footnotetext{\textsuperscript{$\star$}
-    Data intended to assist investors and does not constitute
-    investment advice; independent advice should be sought where appropriate. }}
+    Data intended to assist investors but does not constitute
+    investment advice; independent investment advice should be sought where
+    appropriate. The value of investments can go down as well as up. }}
 
 %----------------------------------------------------------------------------------------
 %	METHODS
@@ -281,12 +286,13 @@ existing market leaders in {\bf online sales and lettings}.
 \end{wrapfigure}
 
 There are currently no mainsteam property sales or rental sites that
-attempts to provide any quantitative insights to contextualise a
+attempt to provide any quantitative insights that contextualise a
 property's list price. Some list recent nearby sales in plain text,
 but the wealth of historical sales data available allows for much
 richer displays (as demonstrated with the fractal context view,
-\emph{above}), which offer valuable and practical insights to
-prospective homebuyers.
+Section A: Figure 1, and by the interactive data-driven map shown in
+Figure 5), which offer valuable and practical insights to prospective
+homebuyers.
 
 This added feature would help differentiate a given sales and letting
 site as well as increase the brand positioning of \logo\hspace{.1em}
@@ -294,7 +300,9 @@ within the real estate sector. Contextual maps could be drawn as
 interactive D3.js visualisations and neatly integrated with a typical
 property search. Additionally, web analytics data from our partnered
 site could be fed-back to help further enhancement and expansion of
-the data-driven insights and visualisations we offer.
+the data-driven insights and visualisations we offer, such as how
+often a given area is searched for on their site and by which
+demographics.
 
 \begin{figure}[h]
 \vspace{1.5em}
@@ -307,30 +315,33 @@ the data-driven insights and visualisations we offer.
 
 \subsection*{2. Direct-to-consumer demo application}
 
-\logo \hspace{.1em} would release both a {\bf web service} and associated
-{\bf mobiles and tablet applications}. These would offer limited analysis and
-visualisation without any fee, with collected user data and feedback helping to
-validate the business model and develop our software.
+\logo \hspace{.1em} will release an initial product both as a {\bf web
+  service} and associated {\bf mobiles and tablet applications}
+(Figure 6). These
+offer limited analysis and visualisation without any fee, with
+collected user data and feedback helping to validate the business
+model and futher develop our software.
 
-\begin{wrapfigure}[12]{r}{.4\textwidth}
+\begin{wrapfigure}[14]{r}{.46\textwidth}
+\vspace{.5em}
 \centering
-\includegraphics[width=.39\textwidth]{Figures/mockup.png}
+\includegraphics[width=.42\textwidth]{Figures/mockup.png}
 \caption{ iOS app mock-up.}
 %\vspace{-1em}
 \end{wrapfigure}
 
 Releasing these products aligns with our aims of democratising real
 estate investment. Amateur property investors and prospective
-landlords can make data-driven decisions, the likes of which are likely
-already employed by large investment trusts and funds. 
+landlords can make data-driven decisions, the likes of which are 
+already employed by analysts for large investment funds. 
 
 A small data science team will gradually expand the range of analyses
 offered, integrating novel public and privately-acquired datasets and
-release them under a rolling subscription model, aimed at private
-landlords and property speculators, as well as professional real
-estate investment trusts (REITs). Significant revenue could be
-generated through tailored partnerships with funds and high net-worth
-individuals.
+release them to a premium app under a rolling subscription model,
+aimed at private landlords and property speculators as well as
+professional real estate investment trusts (REITs). Significant
+revenue could be generated through tailored partnerships with funds
+and high net-worth individuals.
 
 \subsection*{3. Real estate data science consultancy}
 
@@ -339,29 +350,32 @@ will look to develop business relationships with real estate
 investment funds and high net-worth individuals as a {\bf quantitative
   property investment consultancy} and independent analyst for the
 financial services. Our domain expertise and existing partnerships and
-products would place us as a market leader in this undeveloped
+products would place us as a market leader in this largely undeveloped
 segment.
 
-\begin{wrapfigure}[10]{l}{.3\textwidth}
-\vspace{4.5em}
+\begin{wrapfigure}[10]{l}{.33\textwidth}
+\vspace{5em}
 \centering
 \includegraphics[width=.2\textwidth]{Figures/logo.png}
 \includegraphics[width=.2\textwidth]{Figures/logotext.png}
 %\caption*{ {\sf Democratising real estate investment}}
-\caption{ Logo design. }
+\caption{ Branding. }
 %\vspace{-4em}
 \end{wrapfigure}
 
 \section*{Summary}
 
 In this report I've given a brief overview my attempts to elute
-maximal insight from a single large dataset through visualisations and
-quantitative modelling. Together these form a cohesive narrative of
-investigative analysis into a single exemplar postcode, and discovery
-of the potential investment returns therein.
+maximal insight from a single large dataset through statistical
+modelling, visualisations and other data science techniques. Together
+these form a narrative of investigative analysis into a single
+exemplar postcode, and the assessment of the potential investment
+returns within.
 
-These analyses have the potential to generate valuable insights for a range of
-customer segments:
+I have shown that these analyses have the potential to generate
+valuable insights for a range of customer segments:
+
+\setitemize[0]{leftmargin=4em,itemindent=2em}
 \begin{itemize}
 
 \item Online sales and letting agents would benefit from
@@ -380,7 +394,7 @@ users advanced insights into spatiotemporal property statistics.
 
 \hrule
 
-\vspace{1em}
+\vspace{1.5em}
 %\begin{flushright}
 \centering 
 {\small An enhanced online version of this short
