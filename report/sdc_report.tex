@@ -97,7 +97,7 @@ BCOR5mm, % Binding correction
 
 %----------------------------------------------------------------------------------------
 %	ABSTRACT
-%----------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 \vspace{-4em}
 \section*{Overview} 
 
@@ -113,7 +113,7 @@ BCOR5mm, % Binding correction
 
 I analysed the {\bf London house prices} dataset in several creative
 ways. Firstly, the \emph{fractal context} of an area visualises how house
-prices relate to those of neighbouring areas at different scales up
+prices relate to those of neighbouring regions at different scales up
 and down the postcode hierarchy. Secondly, I fit \emph{ARIMA models}
 to forecast an area's price trend into the future, with an eye to
 suggesting profitable investments. Finally, growth and other metrics
@@ -158,10 +158,10 @@ questions through statistical analysis and visualise the results.
 \vspace{-.5em}
 \subsection*{Fractal context}
 
-Letting and sales sites sometimes list some recent sales in a given
-area, but it's not currently possible to get a quantitative overview
-of property prices in a region, within the context of its sector,
-district and postcode.
+Property letting and sales sites sometimes list a few recent sales for
+a given area, but it's not currently possible to get an overview
+of the price distribution within an area, or to frame local prices
+within the context of other nearby sectors, district and postcode.
 
 %\setlength{\intextsep}{0em}
 \begin{wrapfigure}[16]{l}{.45\textwidth}
@@ -174,46 +174,49 @@ district and postcode.
 
 %\noindent 
 
-These questions can be answered with a clear and intuitive data
+This can be addressed with a clear and intuitive data
 visualisation of price distributions in the postcode hierarchy --- what
-I've called the fractal context of a property price (Figure 1).
+I've called the fractal context of a postcode (Figure 1).
 
 Any chosen area can be seen in the context of its surroundings, from
-full postcodes to much wider areas, clearly showing how the pricing of
+exact full postcodes to much wider areas, clearly showing how the pricing of
 any given property relates to those nearby.  The example graphic for
 postcode SW18 4HU (Figure 1) combines ranked violin density plots and
-a geo-heatmap for a clear, intuitive view of a location's price
+a geo-heatmap for a varied and informative view of a location's price
 context.
 
 \vspace{-.5em}
 \subsection*{ARIMA modelling}
 
 Property investors need a method of evaluating the potential investment
-returns of a given property area. This can be achieved through time
+returns for a given property area. This can be achieved through time
 series modelling with autoregressive integrated moving average (ARIMA)
 models (Figure 2). For this application regularised models were fit
 which allowed a $drift$ term to capture non-stationary trends
-(i.e. allowing for gain, loss or neither) as well as coefficients
-reflecting periodicity or seasonal effects. Hence potential investment
-returns could then be optimised by selecting areas with
+(i.e. allowing for price gains, losses or neither) as well as coefficients
+reflecting periodicity or seasonal effects. Predicted investment
+returns can then be optimised by selecting areas with
 maximal growth projections. 
 
 \begin{figure}[h]
-\begin{center}
+\centering
+\vspace{.5em}
 \includegraphics[width=.9\textwidth]{Figures/arima.png}
-\caption{Example ARIMA forecast of median house prices for a specific postcode.}
-\end{center}
+\vspace{-.5em}
+\caption{ ARIMA model and forecast of median monthly house prices for the
+  SW18 4 sector.}
+\vspace{.75em}
 \end{figure}
 
-\vspace{-2em}
+\vspace{-1.8em}
 \subsection*{Investment grading}
 
 Combining growth forecasts and with an additional measure of
 variability allows an approximate investment grading of each sector,
-relative to other postcodes within the area covered by this
-dataset. This intuitive output metric can help prioritise areas ripe
+relative to all others covered by this dataset (over 2,500
+sectors). This intuitive output metric can help prioritise areas ripe
 for property investment and combines the theoretical model projections
-with an empirical metric of past stability.
+with an empirical measure of past stability.
 
 As an example, Figure 3 shows the top 5 postcode sectors in which to
 invest, according to their 12-month price growth forecast and
@@ -285,7 +288,7 @@ existing market leaders in {\bf online sales and lettings}.
 \end{center}
 \end{wrapfigure}
 
-There are currently no mainsteam property sales or rental sites that
+There are currently no mainstream property sales or rental sites that
 attempt to provide any quantitative insights that contextualise a
 property's list price. Some list recent nearby sales in plain text,
 but the wealth of historical sales data available allows for much
@@ -320,7 +323,7 @@ demographics.
 (Figure 6). These
 offer limited analysis and visualisation without any fee, with
 collected user data and feedback helping to validate the business
-model and futher develop our software.
+model and further develop our software.
 
 \begin{wrapfigure}[14]{r}{.46\textwidth}
 \vspace{.5em}
@@ -332,16 +335,18 @@ model and futher develop our software.
 
 Releasing these products aligns with our aims of democratising real
 estate investment. Amateur property investors and prospective
-landlords can make data-driven decisions, the likes of which are 
-already employed by analysts for large investment funds. 
+landlords can use our products to make data-driven decisions, the
+likes of which are already employed by analysts for large investment
+funds.
 
 A small data science team will gradually expand the range of analyses
 offered, integrating novel public and privately-acquired datasets and
-release them to a premium app under a rolling subscription model,
-aimed at private landlords and property speculators as well as
-professional real estate investment trusts (REITs). Significant
-revenue could be generated through tailored partnerships with funds
-and high net-worth individuals.
+releasing them to a premium app offered under a subscription model,
+aimed at private landlords, professional property developers and
+property speculators as well as real estate investment trusts
+(REITs). Significant revenue could be generated through tailored
+partnerships with funds and high net-worth individuals, likely
+developed from leads that use this service.
 
 \subsection*{3. Real estate data science consultancy}
 
@@ -366,11 +371,11 @@ segment.
 \section*{Summary}
 
 In this report I've given a brief overview my attempts to elute
-maximal insight from a single large dataset through statistical
+maximal insights from a single large dataset through statistical
 modelling, visualisations and other data science techniques. Together
 these form a narrative of investigative analysis into a single
-exemplar postcode, and the assessment of the potential investment
-returns within.
+exemplar postcode, culminating in the assessment of potential investment
+returns for properties in this area.
 
 I have shown that these analyses have the potential to generate
 valuable insights for a range of customer segments:
